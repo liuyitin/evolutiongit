@@ -11,5 +11,15 @@ export default {
 </script>
 
 <style>
-
+.disflex{
+  display: flex;
+}
+.itemc{
+  display: flex;
+  align-items: center;
+}
+.itemend{
+  display: flex;
+  align-items: flex-end;
+}
 </style>

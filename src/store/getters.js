@@ -1,0 +1,1 @@
+export const getIsshowminimenu = state => state.isshowminimenu

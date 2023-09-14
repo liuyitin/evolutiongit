@@ -34,6 +34,21 @@ const routes = [
     name: 'layout',
     meta: { title: 'layout', },
     component: () => import('../views/layout/index.vue'), 
+    redirect:"/layout/home",
+    children:[
+      {
+        path: 'home',
+        name: 'Home',
+        meta: { title: 'home', },
+        component: () => import('../views/Home/index.vue'), 
+      },
+      {
+        path: 'sub',
+        name: 'Sub',
+        meta: { title: 'sub', },
+        component: () => import('../views/Sub/index.vue'), 
+      }
+    ]
   },
   {
     path: '*',

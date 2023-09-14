@@ -1,0 +1,55 @@
+.layout-main {
+  width: 100%;
+  min-height: calc(100vh - 50px);
+  border-left: 1px solid #d2d6de;
+  background-color: #ecf0f5;
+}
+.content-header {
+  box-sizing: content-box;
+  padding: 15px 15px 0 15px;
+  display: flex;
+  justify-content: space-between;
+  line-height: 1;
+  height: 27px;
+}
+.content-header h1 {
+  font-family: 'Source Sans Pro', sans-serif;
+  font-size: 22px;
+  font-weight: 500;
+  color: #212529;
+}
+.content-header span {
+  font-family: 'Source Sans Pro', sans-serif;
+  font-size: 13px;
+  display: inline-block;
+  padding-left: 4px;
+  font-weight: 300;
+}
+.content-header .bf10 {
+  color: #444;
+}
+.content-header .bf10 img {
+  width: 12px;
+  height: 12px;
+  margin-right: 5px;
+}
+.content-header .bf10 span {
+  font-size: 11px;
+  font-family: 'Source Sans Pro', 'Helvetica Neue', Helvetica, Arial, sans-serif;
+  font-weight: 400;
+  padding: 0;
+}
+.content-header .bf11 {
+  color: #444;
+}
+.content-header .bf11 img {
+  width: 8px;
+  height: 7px;
+}
+.content-header .bf11 span {
+  color: #212529;
+  font-size: 11px;
+  font-family: 'Source Sans Pro', 'Helvetica Neue', Helvetica, Arial, sans-serif;
+  font-weight: 400;
+  padding: 0;
+}
