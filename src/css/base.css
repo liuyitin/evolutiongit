@@ -1,0 +1,80 @@
+/* 清除默认样式的代码 */
+
+
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+    font-family: Magda, Verdana, Arial, Helvetica, sans-serif;
+}
+
+html {
+    font-family: sans-serif;
+    -webkit-text-size-adjust: 100%;
+    -ms-text-size-adjust: 100%;
+    font-size: 20px;
+    color: #333;
+}
+
+body {
+    font-size: 20px;
+    color: #333;
+}
+
+ul,
+ol {
+    list-style: none;
+
+}
+
+em,
+i {
+    font-style: normal;
+}
+
+a {
+    text-decoration: none;
+    color: #333;
+    background-color: transparent;
+}
+
+a:active,
+a:hover {
+    outline: 0;
+}
+
+img {
+    vertical-align: middle;
+}
+
+input {
+    border: none;
+    outline: none;
+    color: #333;
+    background: none;
+}
+
+input:focus {
+    border: none;
+}
+
+textarea {
+    background: none;
+    outline: none;
+    border: none;
+}
+
+textarea:focus {
+    border: none;
+}
+
+.flexc {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.flexitemc {
+    display: flex;
+    align-items: center;
+}

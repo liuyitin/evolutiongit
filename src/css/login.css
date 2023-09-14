@@ -1,0 +1,62 @@
+.loginBox {
+  box-sizing: border-box;
+  width: 100vw;
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
+.banner {
+  box-sizing: content-box;
+  height: 80px;
+  background: url("~@/assets/img/evo_logo_1.png") center center no-repeat;
+  border-bottom: 1px solid #dcdcde;
+}
+.serverInfo {
+  margin-top: 10px;
+  margin-bottom: 50px;
+  height: 45px;
+}
+.serverInfo > div {
+  margin: 0 auto;
+  font-size: 0.6rem;
+  color: dimgrey;
+  padding: 1px;
+  text-align: center;
+}
+.login-input {
+  display: block;
+  margin: 0 auto 15px;
+  color: #1f1d20;
+  border: 1px solid #b9babd;
+  background-color: #FFFFFF;
+  height: 32px;
+  line-height: 32px;
+  width: 225px;
+  text-align: center;
+  -webkit-box-shadow: inset #ddd 1px 1px 2px;
+  -moz-box-shadow: inset #ddd 1px 1px 2px;
+  box-shadow: inset #ddd 1px 1px 2px;
+}
+input:focus {
+  border: 1px solid #599CBC;
+}
+.submit {
+  margin: 0 auto;
+  width: 225px;
+  height: 30px;
+  background: url("~@/assets/img/login_btn_1.jpg") center center no-repeat;
+}
+.login-footer {
+  background: #F5F5F5;
+}
+.upper-footer {
+  box-sizing: content-box;
+  height: 102px;
+  background: url("~@/assets/img/footer-1.png") center bottom no-repeat;
+  border-bottom: 1px solid #DCDCDE;
+}
+.lower-footer {
+  height: 65px;
+  background: url("~@/assets/img/footer-2.png") center center no-repeat;
+}
