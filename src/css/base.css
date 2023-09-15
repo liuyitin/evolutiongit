@@ -5,7 +5,8 @@
     box-sizing: border-box;
     margin: 0;
     padding: 0;
-    font-family: Magda, Verdana, Arial, Helvetica, sans-serif;
+    /* font-family: Magda, Verdana, Arial, Helvetica, sans-serif; */
+     font-family: 'Source Sans Pro','Helvetica Neue',Helvetica,Arial,sans-serif;
 }
 
 html {

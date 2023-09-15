@@ -88,12 +88,32 @@
 
     .dropdown-toggle {
         white-space: nowrap;
-        display: flex;
-        align-items: center;
         color: #333;
 
         &:hover {
             color: #999;
+
+            &::after {
+                content: "";
+                display: inline-block;
+                margin-left: 4px;
+                vertical-align: 4px;
+                border-top: 4px solid #999;
+                border-right: 4px solid transparent;
+                border-bottom: 0;
+                border-left: 4px solid transparent;
+            }
+        }
+
+        &::after {
+            content: "";
+            display: inline-block;
+            margin-left: 4px;
+            vertical-align: 4px;
+            border-top: 4px solid #333;
+            border-right: 4px solid transparent;
+            border-bottom: 0;
+            border-left: 4px solid transparent;
         }
 
         .username {
@@ -101,17 +121,12 @@
             font-family: 'Source Sans Pro', 'Helvetica Neue', Helvetica, Arial, sans-serif;
             font-weight: 400;
             border-left: 1px solid #eee;
+
+
         }
     }
 
-    .triangle {
-        display: inline-block;
-        margin-left: 4px;
-        border-top: 4px solid #999;
-        border-right: 4px solid transparent;
-        border-bottom: 0;
-        border-left: 4px solid transparent;
-    }
+ 
 
     .dropdown-menu {
         box-sizing: content-box;
@@ -160,17 +175,18 @@
 }
 
 .main-header.w50 {
-    .logo{
+    .logo {
         padding: 0;
         width: @logominiwidth;
         font-size: 18px;
         display: flex;
         align-items: center;
         justify-content: center;
-      }
-      .navbar{
+    }
+
+    .navbar {
         margin-left: @logominiwidth;
-      }
+    }
 }
 
 
@@ -188,9 +204,9 @@
     transition: transform .3s ease-in-out, width .3s ease-in-out;
     font-family: 'Source Sans Pro', 'Helvetica Neue', Helvetica, Arial, sans-serif;
     padding-bottom: 10px;
- 
+
     .el-menu {
-        box-sizing:content-box;
+        box-sizing: content-box;
         width: 100%;
         background-color: #f9fafc;
     }
@@ -230,8 +246,7 @@
                 align-items: flex-end;
 
 
-                img {
-                    height: 11px;
+                i {
                     margin-right: 4px;
                 }
 
@@ -261,7 +276,9 @@
         color: #444;
         height: auto;
         line-height: 21px;
-
+        i{
+            color: #444;
+        }
         &:hover,
         &.is-active {
             color: #000;
@@ -290,7 +307,7 @@
             max-height: 100%;
         }
     }
-  
+
 
     .el-submenu__title {
         box-sizing: content-box;
@@ -301,16 +318,20 @@
         height: auto;
         line-height: 21px;
         border-left: 3px solid transparent;
-       
 
+        i{
+            color: #444;
+        }
         &:hover,
         &.is-active {
             color: #000;
             background: #f4f4f5;
+
             i {
                 color: #000;
             }
         }
+
     }
 
     .el-submenu__icon-arrow {
@@ -320,20 +341,23 @@
     .el-submenu.is-opened>.el-submenu__title .el-submenu__icon-arrow {
         transform: rotateZ(90deg);
     }
+
     .openmenu {
-        .el-menu-item{
+        .el-menu-item {
             border: 0;
             color: #777;
             font-size: 14px;
             font-weight: 400;
             font-family: 'Source Sans Pro', 'Helvetica Neue', Helvetica, Arial, sans-serif;
             padding: 5px 5px 5px 15px !important;
+
             &:hover,
             &.is-active {
                 color: #000;
                 background: #f4f4f5;
             }
         }
+
         .el-submenu__title {
             border: 0;
             color: #777;
@@ -341,14 +365,16 @@
             font-weight: 400;
             font-family: 'Source Sans Pro', 'Helvetica Neue', Helvetica, Arial, sans-serif;
             padding: 5px 5px 5px 15px !important;
-    
+
             i {
                 color: #777;
             }
+
             &:hover,
             &.is-active {
                 color: #000;
                 background: #f4f4f5;
+
                 i {
                     color: #000;
                 }
@@ -358,7 +384,8 @@
 
 
 }
-.mini-el-aside .el-aside.el-aside{
+
+.mini-el-aside .el-aside.el-aside {
     width: @logominiwidth !important;
     // &:hover{
     //     width: @logowidth !important;
@@ -367,7 +394,9 @@
     //     }
 
     // }
-    .disnone,.el-menu-item-group__title,i{
+    .disnone,
+    .el-menu-item-group__title,
+    i {
         display: none;
     }
 }
@@ -375,6 +404,7 @@
 .ml5 {
     margin-left: 5px;
 }
-.pl20{
+
+.pl20 {
     padding-left: 20px;
 }

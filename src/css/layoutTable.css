@@ -9,15 +9,13 @@
 }
 .layout-table-content .panel-header {
   font-family: 'Source Sans Pro', 'Helvetica Neue', Helvetica, Arial, sans-serif;
-  box-sizing: content-box;
-  padding: 5px;
-  background: linear-gradient(to bottom, #F8F8F8 0, #eeeeee 100%);
-  border: 1px solid #D3D3D3;
-  font-size: 12px;
+}
+.layout-table-content .panel-header .panel-title {
+  font-size: 12px !important;
   font-weight: bold;
   color: #575765;
-  height: 16px;
   line-height: 16px;
+  height: 16px;
 }
 .layout-table-content .datagrid-toolbar {
   box-sizing: content-box;
@@ -25,4 +23,61 @@
   border-bottom: 1px solid #ddd;
   color: #000000;
   font-size: 12px;
+}
+.layout-table-content .statusComboBox {
+  width: 100px;
+  text-align: start;
+  padding-top: 0px;
+  padding-bottom: 0px;
+  height: 26px;
+  line-height: 26px;
+}
+.layout-table-content .statusComboBox .textbox-icon {
+  width: 18px;
+}
+.layout-table-content .statusComboBox .combo-panel {
+  height: auto;
+  max-height: 200px;
+}
+.layout-table-content .statusComboBox .combo-panel .combobox-item {
+  padding: 3px;
+  line-height: 18px;
+}
+.layout-table-content .datagrid-wrap {
+  border: 0;
+  min-height: 551px;
+}
+.layout-table-content .datagrid-cell {
+  font-size: 12px;
+}
+.layout-table-content .datagrid-cell a {
+  color: #3c8dbc;
+}
+.layout-table-content .datagrid-header-inner {
+  height: 25px;
+}
+.layout-table-content .table-pagination {
+  border-top: 1px solid #ddd;
+}
+.layout-table-content .datagrid-header-row,
+.layout-table-content .datagrid-row {
+  height: 25px;
+}
+.layout-table-content .datagrid-htable,
+.layout-table-content .datagrid-btable,
+.layout-table-content .datagrid-ftable {
+  width: auto;
+}
+.layout-table-content .datagrid-body-inner {
+  display: flex;
+}
+.layout-table-content .datagrid-row-selected td.datagrid-td-rownumber,
+.layout-table-content td.datagrid-td-rownumber.datagrid-row-over {
+  color: #000;
+  background-color: #fafafa !important;
+  background: -webkit-gradient(linear, left top, left bottom, color-stop(0, #fdfdfd), to(#f5f5f5)) !important;
+  background: linear-gradient(to bottom, #fdfdfd 0, #f5f5f5 100%) !important;
+}
+.layout-table-content .GridColumntd {
+  box-sizing: border-box;
 }

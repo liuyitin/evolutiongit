@@ -7,10 +7,15 @@ import ElementUI from 'element-ui';
 import store from './store'
 import 'element-ui/lib/theme-chalk/index.css';
 import "@/css/base.css"
-
+import 'vx-easyui/dist/themes/default/easyui.css';
+import 'vx-easyui/dist/themes/icon.css';
+import 'vx-easyui/dist/themes/vue.css';
+import '@/assets/font-awesome/font-awesome.min.css';
+import EasyUI from 'vx-easyui';
 Vue.config.productionTip = false
 
 Vue.use(ElementUI);
+Vue.use(EasyUI);
 
 /* eslint-disable no-new */
 new Vue({

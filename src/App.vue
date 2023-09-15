@@ -22,4 +22,9 @@ export default {
   display: flex;
   align-items: flex-end;
 }
+.justifybetween{
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
 </style>
