@@ -2,6 +2,9 @@
 export function setIsshowminimenu({commit}, value) { // commit 提交
     return commit ('setIsshowminimenu', value)
 }
+export function setusername({commit}, value) { // commit 提交
+    return commit ('setusername', value)
+}
 
  
 // ES6精简写法

@@ -21,7 +21,7 @@
 
 
 import "@/css/login.css"
-import {useRouter} from "vue-router";
+import {mapMutations} from "vuex";
 
 
 export default {
@@ -33,16 +33,16 @@ export default {
     },
 
     mounted() {
-
+       
     },
     methods: {
-        onload() {
-
-        },
+        ...mapMutations(["setusername"]),
         submit(){
             let {username,password}=this
             if(username=="263041STA"&&password=="112233"){
                 this.$router.push({name:"layout"})
+                this.setusername(username)
+                localStorage.setItem("username",username)
             }
         },
 

@@ -1,0 +1,102 @@
+.addSubBox {
+  border-radius: 3px;
+  background: #ffffff;
+  border-top: 3px solid #d2d6de;
+  margin-bottom: 20px;
+  width: 100%;
+  box-shadow: 0 1px 1px rgba(0, 0, 0, 0.1);
+}
+.addSubBox .addSubBox-header {
+  padding: 10px;
+  border-bottom: 1px solid #f4f4f4;
+  font-size: 18px;
+  margin: 0;
+  line-height: 21px;
+  color: #444;
+}
+.addSubBox .formBox {
+  border-top-left-radius: 0;
+  border-top-right-radius: 0;
+  border-bottom-right-radius: 3px;
+  border-bottom-left-radius: 3px;
+  padding: 10px;
+  font-size: 14px;
+}
+.addSubBox .form-group {
+  width: calc(50% - 20px);
+  margin-bottom: 16px;
+}
+.addSubBox .textbox-label {
+  padding-left: 15px;
+  margin-bottom: 8px;
+  line-height: 21px;
+  height: 21px;
+}
+.addSubBox .loginusername {
+  line-height: 34px;
+  vertical-align: middle;
+  font-weight: bold;
+}
+.addSubBox .f-field {
+  width: 83.33333%;
+  height: 38px;
+  font-weight: 400;
+  line-height: 24px;
+  color: #495057;
+  background-color: #fff;
+  background-clip: padding-box;
+  border: 1px solid #ced4da;
+  border-radius: 0;
+  margin-left: 15px;
+}
+.addSubBox .textbox .textbox-text {
+  font-size: 16px;
+  padding: 6px 12px;
+}
+.addSubBox .username .f-field {
+  width: 100%;
+  margin-left: 0;
+}
+.addSubBox .form-footer {
+  display: flex;
+  justify-content: flex-end;
+  width: 100%;
+  border-top-left-radius: 0;
+  border-top-right-radius: 0;
+  border-bottom-right-radius: 3px;
+  border-bottom-left-radius: 3px;
+  border-top: 1px solid #f4f4f4;
+  padding: 10px;
+  background-color: #fff;
+}
+.addSubBox .form-footer .btn {
+  font-weight: 400;
+  text-align: center;
+  vertical-align: middle;
+  padding: 6px 12px;
+  font-size: 16px;
+  line-height: 24px;
+  border-radius: 3px;
+}
+.addSubBox .form-footer .l-btn-text {
+  font-size: 16px;
+  color: #212529;
+}
+.addSubBox .form-footer .Cancel {
+  background: #f39c12;
+  border: 1px solid #e08e0b;
+  margin-right: 3px;
+}
+.addSubBox .form-footer .Cancel:hover {
+  background: #e08e0b;
+}
+.addSubBox .form-footer .submitform {
+  background: #3c8dbc;
+  border-color: #367fa9;
+}
+.addSubBox .form-footer .submitform .l-btn-text {
+  color: #fff;
+}
+.addSubBox .form-footer .submitform:hover {
+  background: #367fa9;
+}

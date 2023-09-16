@@ -18,6 +18,11 @@ export default {
   display: flex;
   align-items: center;
 }
+.flexwrap{
+  display: flex;
+  align-items: center;
+  flex-wrap: wrap;
+}
 .itemend{
   display: flex;
   align-items: flex-end;

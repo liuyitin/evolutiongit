@@ -7,7 +7,8 @@
             </div>
             <div class="content-header-right itemc">
                 <div class="bf10 itemc">
-                    <img src="~@/assets/img/bf10.png" alt="">
+                    <i class="fa fa-dashboard"></i>
+                    <!-- <img src="~@/assets/img/bf10.png" alt=""> -->
                     <span>Home</span>
                 </div>
                 <div class="bf11 itemc">
@@ -15,6 +16,9 @@
                     <span>Dashboard</span>
                 </div>
             </div>
+        </div>
+        <div class="layout-table-content">
+
         </div>
        
     </div>

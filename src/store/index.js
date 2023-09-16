@@ -8,6 +8,7 @@ Vue.use(Vuex)
 // 首先声明一个需要全局维护的状态 state,比如 我这里举例的resturantName
 const state = {
     isshowminimenu: !1,
+    username: "",
 }
  
 // 注册上面引入的各大模块

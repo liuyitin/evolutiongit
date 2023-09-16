@@ -15,7 +15,7 @@
                             <div class="user-menu-content" @click="usermenu">
                                 <img src="~@/assets/img/user.png" alt="">
                                 <div class="dropdown-toggle">
-                                    <span class="username">263041STA</span>
+                                    <span class="username">{{username}}</span>
                                 </div>
                             </div>
                             <div class="dropdown-menu" v-show="isshowusermenu">
@@ -47,7 +47,7 @@
 
                             <el-menu-item-group>
                                 <template slot="title" class="disnone">Accounts</template>
-                                <el-menu-item index="/layout/sub">
+                                <el-menu-item index="/layout/sub/subPanel">
                                     <div class="menu-item-img">
                                         <i class="fa fa-male"></i>
                                     </div>
@@ -56,19 +56,19 @@
                             </el-menu-item-group>
                             <el-menu-item-group>
                                 <template slot="title" class="disnone">Member</template>
-                                <el-menu-item index="2">
+                                <el-menu-item index="/layout/member">
                                     <div class="menu-item-img">
                                         <i class="fa fa-users"></i>
                                     </div>
                                     <span slot="title" class="disnone">Member List</span>
                                 </el-menu-item>
-                                <el-menu-item index="3">
+                                <el-menu-item index="/layout/transfer">
                                     <div class="menu-item-img">
                                         <i class="fa fa-dollar"></i>
                                     </div>
                                     <span slot="title" class="disnone">Member Transfer</span>
                                 </el-menu-item>
-                                <el-menu-item index="4">
+                                <el-menu-item index="/layout/history">
                                     <div class="menu-item-img">
                                         <i class="fa fa-th-list"></i>
                                     </div>
@@ -77,7 +77,7 @@
                             </el-menu-item-group>
                             <el-menu-item-group>
                                 <template slot="title" class="disnone">Game Analysis Tool</template>
-                                <el-menu-item index="5">
+                                <el-menu-item index="/layout/search-gameid">
                                     <div class="menu-item-img">
                                         <i class="fa fa-search"></i>
                                     </div>
@@ -86,7 +86,7 @@
                             </el-menu-item-group>
                             <el-menu-item-group>
                                 <template slot="title" class="disnone">Report</template>
-                                <el-menu-item index="6">
+                                <el-menu-item index="/layout/winloss">
                                     <div class="menu-item-img">
                                         <i class="fa fa-line-chart"></i>
                                     </div>
@@ -169,7 +169,7 @@
 
                 <el-container>
                     <el-main>
-                        <router-view />
+                        <router-view></router-view>
                     </el-main>
                 </el-container>
             </el-container>
@@ -179,15 +179,17 @@
 <script>
 
 
-// import "@/css/login.css"
 
 import "@/css/layout.css"
+// import {mapGetters} from "vuex";
+
 export default {
     data() {
         return {
             isshowusermenu: !1,
             isshowminimenu: !1,
             ismini: !1,
+
         };
     },
 
@@ -195,7 +197,6 @@ export default {
 
     },
     methods: {
-
         usermenu() {
             this.isshowusermenu = !this.isshowusermenu
         },
@@ -205,8 +206,7 @@ export default {
         isCollapse() {
             this.isshowminimenu = !this.isshowminimenu
             this.ismini = !this.ismini
-            // console.log(this.isshowminimenu, "this.isshowminimenu");
-            // this.setIsshowminimenu(this.isshowminimenu)
+          
         },
         mouseenter() {
             if (this.ismini) {
@@ -217,6 +217,13 @@ export default {
             if (this.ismini) {
                 this.isshowminimenu = !0
             }
+        },
+
+    },
+    computed:{
+        // ...mapGetters(["getusername"]),
+        username(){
+            return localStorage.getItem("username")
         },
 
     },

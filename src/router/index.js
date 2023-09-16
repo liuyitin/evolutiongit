@@ -27,27 +27,72 @@ const routes = [
     path: '/login',
     name: 'login',
     meta: { title: 'login', },
-    component: () => import('../views/login/index.vue'), 
+    component: () => import('../views/login/index.vue'),
   },
   {
     path: '/layout',
     name: 'layout',
     meta: { title: 'layout', },
-    component: () => import('../views/layout/index.vue'), 
-    redirect:"/layout/home",
-    children:[
+    component: () => import('../views/layout/index.vue'),
+    redirect: "/layout/home",
+    children: [
       {
         path: 'home',
         name: 'Home',
         meta: { title: 'home', },
-        component: () => import('../views/Home/index.vue'), 
+        component: () => import('../views/Home/index.vue'),
       },
       {
         path: 'sub',
         name: 'Sub',
         meta: { title: 'sub', },
-        component: () => import('../views/Sub/index.vue'), 
-      }
+        redirect: "sub/subPanel",
+        component: () => import('../views/Sub/index.vue'),
+        children: [
+          {
+            path: 'subPanel',
+            name: 'subPanel',
+            meta: { title: 'sub', },
+            component: () => import('../views/subPanel/index.vue'),
+          },
+          {
+            path: 'addSub',
+            name: 'add',
+            meta: { title: 'add', },
+            component: () => import('../views/addSub/index.vue'),
+          }
+        ]
+      },
+      {
+        path: 'member',
+        name: 'Member',
+        meta: { title: 'member', },
+        component: () => import('../views/Member/index.vue'),
+      },
+      {
+        path: 'transfer',
+        name: 'Transfer',
+        meta: { title: 'transfer', },
+        component: () => import('../views/Transfer/index.vue'),
+      },
+      {
+        path: 'history',
+        name: 'History',
+        meta: { title: 'history', },
+        component: () => import('../views/History/index.vue'),
+      },
+      {
+        path: 'search-gameid',
+        name: 'SearchGameid',
+        meta: { title: 'search-gameid', },
+        component: () => import('../views/SearchGameid/index.vue'),
+      },
+      {
+        path: 'winloss',
+        name: 'Winloss',
+        meta: { title: 'winloss', },
+        component: () => import('../views/Winloss/index.vue'),
+      },
     ]
   },
   {
