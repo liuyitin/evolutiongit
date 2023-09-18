@@ -54,7 +54,6 @@
                         &nbsp;
                         <LinkButton iconCls="icon-search">Search</LinkButton>
                     </div>
-                    <LinkButton iconCls="icon-add" @click="addsub">Add</LinkButton>
                 </div>
                 <div>
                     <DataGrid :data="list" fixColumnSize="name" selectionMode="multiple" 

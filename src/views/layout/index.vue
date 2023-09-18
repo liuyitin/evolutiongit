@@ -29,7 +29,7 @@
                 </div>
             </el-header>
             <el-container class="sectionBox">
-                <div @mouseenter="mouseenter" @mouseleave="mouseLeave" :class="isshowminimenu ? 'mini-el-aside' : ''">
+                <div @mouseenter="mouseenter" @mouseleave="mouseLeave" class="asideBox" :class="isshowminimenu ? 'mini-el-aside' : ''">
                     <el-aside>
                         <el-menu :default-openeds="$route.path" :unique-opened="true" router>
                             <div class="user-panel">
@@ -92,20 +92,20 @@
                                     </div>
                                     <span slot="title" class="disnone">Win Loss Report</span>
                                 </el-menu-item>
-                                <el-menu-item index="7">
+                                <el-menu-item index="/layout/financial">
                                     <div class="menu-item-img">
                                         <i class="fa fa-table"></i>
                                     </div>
                                     <span slot="title" class="disnone">Premium Settlement</span>
                                 </el-menu-item>
-                                <el-menu-item index="8">
+                                <el-menu-item index="/layout/firstperson">
                                     <div class="menu-item-img">
                                         <i class="fa fa-table"></i>
                                     </div>
                                     <span slot="title" class="disnone">First Person Settlement</span>
                                 </el-menu-item>
 
-                                <el-menu-item index="9">
+                                <el-menu-item index="/layout/gaming">
                                     <div class="menu-item-img">
                                         <i class="fa fa-line-chart"></i>
                                     </div>
@@ -114,52 +114,52 @@
                             </el-menu-item-group>
                             <el-menu-item-group>
                                 <template slot="title" class="disnone">Documentation</template>
-                                <el-submenu index="10">
+                                <el-submenu index="/layout/documentationapi">
                                     <template slot="title">
                                         <div class="menu-item-img">
                                             <i class="fa fa-file"></i>
                                         </div><span class="disnone">API</span>
                                     </template>
                                     <div class="ml5 openmenu disnone">
-                                        <el-submenu index="10-1">
+                                        <el-submenu index="/layout/documentationapi-onewallet">
                                             <template slot="title">
                                                 <div class="menu-item-img">
                                                     <i class="fa fa-file"></i>
                                                 </div><span>One Wallet Integration</span>
                                             </template>
                                             <div class="pl20">
-                                                <el-menu-item index="10-1-1">User Authentication (Seamless)</el-menu-item>
+                                                <el-menu-item index="/layout/documentationapi-onewallet-onewalletuser">User Authentication (Seamless)</el-menu-item>
                                             </div>
                                         </el-submenu>
-                                        <el-submenu index="10-2">
+                                        <el-submenu index="/layout/documentationapi-fundtransfer">
                                             <template slot="title">
                                                 <div class="menu-item-img">
                                                     <i class="fa fa-file"></i>
                                                 </div><span>Fund Transfer Integration</span>
                                             </template>
                                             <div class="pl20">
-                                                <el-menu-item index="10-2-1">User Authentication (FT)</el-menu-item>
+                                                <el-menu-item index="/layout/documentationapi-fundtransfer-fundtransferuser">User Authentication (FT)</el-menu-item>
                                             </div>
                                         </el-submenu>
 
 
-                                        <el-menu-item index="10-3">Game History API</el-menu-item>
-                                        <el-menu-item index="10-4">Game List API</el-menu-item>
-                                        <el-menu-item index="10-5">Kick Player API</el-menu-item>
+                                        <el-menu-item index="/layout/documentationapi-gamehistory">Game History API</el-menu-item>
+                                        <el-menu-item index="/layout/documentationapi-gamelist">Game List API</el-menu-item>
+                                        <el-menu-item index="/layout/documentationapi-kickPlayer">Kick Player API</el-menu-item>
                                     </div>
                                 </el-submenu>
-                                <el-submenu index="11">
+                                <el-submenu index="/layout/reference">
                                     <template slot="title">
                                         <div class="menu-item-img">
                                             <i class="fa fa-file"></i>
                                         </div><span class="disnone">Reference</span>
                                     </template>
                                     <div class="ml5 openmenu disnone">
-                                        <el-menu-item index="11-1">Table List</el-menu-item>
-                                        <el-menu-item index="11-2">Game Type</el-menu-item>
-                                        <el-menu-item index="11-3">Country Code</el-menu-item>
-                                        <el-menu-item index="11-4">Currency Code</el-menu-item>
-                                        <el-menu-item index="11-5">Language Code</el-menu-item>
+                                        <el-menu-item index="/layout/reference-tablelist">Table List</el-menu-item>
+                                        <el-menu-item index="/layout/reference-gametype">Game Type</el-menu-item>
+                                        <el-menu-item index="/layout/reference-countrycode">Country Code</el-menu-item>
+                                        <el-menu-item index="/layout/reference-currencycode">Currency Code</el-menu-item>
+                                        <el-menu-item index="/layout/reference-languagecode">Language Code</el-menu-item>
                                     </div>
                                 </el-submenu>
                             </el-menu-item-group>
@@ -180,7 +180,9 @@
 
 
 
+import "@/css/bootstrap.css";
 import "@/css/layout.css"
+
 // import {mapGetters} from "vuex";
 
 export default {
@@ -243,4 +245,5 @@ export default {
 .el-main {
     padding: 0;
 }
+
 </style>

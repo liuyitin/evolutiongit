@@ -9,12 +9,15 @@
   display: flex;
   justify-content: space-between;
   line-height: 1;
+  height: 43px;
 }
 .content-header h1 {
   font-family: 'Source Sans Pro', sans-serif;
   font-size: 24px;
   font-weight: 500;
   color: #212529;
+  margin: 0;
+  line-height: 1;
 }
 .content-header span {
   font-family: 'Source Sans Pro', sans-serif;

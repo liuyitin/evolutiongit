@@ -1,3 +1,4 @@
+
 @logowidth: 230px;
 @logominiwidth: 50px;
 
@@ -189,7 +190,25 @@
     }
 }
 
+.asideBox{
+    overflow-y: scroll;
+    overflow-x: hidden;
+}
+.asideBox::-webkit-scrollbar {
+  width: 0; /* 隐藏滚动条 */
+}
 
+.asideBox:hover::-webkit-scrollbar {
+  width: 1px; /* 鼠标 hover 时显示滚动条 */
+}
+
+.asideBox::-webkit-scrollbar-thumb {
+  background: #ccc; /* 滚动条thumb颜色 */
+}
+
+.asideBox::-webkit-scrollbar-track {
+  background: #eee; /* 滚动条轨道颜色 */
+}
 
 // 左边
 .el-aside {
