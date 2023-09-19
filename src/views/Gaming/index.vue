@@ -47,7 +47,7 @@
                                         <i class="fa fa-calendar"></i>
                                     </div>
                                 </div>
-                                <input type="text" class="form-control" id="daterange">
+                                <input type="text" class="form-control" name="daterange" id="daterange">
                             </div>
                         </div>
                     </div>
@@ -119,109 +119,207 @@
         </div>
     </div>
 </template>
- <!-- <script src="~@/assets/js/jquery.js"></script> -->
- <!-- <script src="~@/assets/js/moment.js"></script> -->
-<!-- <script src="~@/assets/daterangepicker/daterangepicker.js"></script> -->
+
   
 <script>
 
 import "@/css/home.css"
 import "@/css/layoutTable.css"
 import '@/assets/daterangepicker/daterangepicker.css';
-// import $ from '@/utils/jqueryVender.js';
-// import $ from "jquery";
-// import "daterangepicker"
-// require('daterangepicker')
-// import  'moment';
-// import  daterangepicker from '@/assets/daterangepicker/daterangepicker.js';
+import '@/assets/dx/dx.common.css';
+import '@/assets/dx/dx.light.css';
+
 
 
 export default {
     data() {
         return {
-            isshow:!1,
-
+            isshow: !1,
+            daterange: [],
+            arrFilter1:null,
+            arrFilter2:null,
         }
     },
     methods: {
-        showpanel(){
-            this.isshow=!this.isshow
+        showpanel() {
+            this.isshow = !this.isshow
+        },
+        field(rows, columns){
+            var columnField = [];
+            var rowField = [];
+            if (columns != null && columns.length > 0) {
+                columns.forEach(function (filter) {
+                    var name = { "game_type": "Game", "table_name": "Table", "currency": "Currency", "status": "Status" };
+                    //console.log(filter)
+                    if (filter === 'status') {
+                        column = {
+                            'caption': name['status'],
+                            'dataField': filter,
+                            'width': 120,
+                            'area': 'column',
+                            customizeText: function (e) {
+                                if (e.valueText == 1) {
+                                    return "Resolved";
+                                }
+                                else
+                                    return "Cancelled";
+                            }
+
+                        };
+                        columnField.push(column);
+
+                    }
+                    else {
+                        column = {
+                            'caption': name[filter],
+                            'dataField': filter,
+                            'area': 'column',
+                            'width': 120,
+                        };
+                        columnField.push(column);
+                    }
+                });
+            }
+            if (rows != null && rows.length > 0) {
+                rows.forEach(function (filter) {
+                    var name = { "game_type": "Game", "table_name": "Table", "currency": "Currency", "status": "Status" };
+                    if (filter === 'status') {
+                        row = {
+                            'caption': name['status'],
+                            'dataField': filter,
+                            'width': 120,
+                            'area': 'row',
+                            customizeText: function (e) {
+                                if (e.valueText == 1) {
+                                    return "Resolved";
+                                }
+                                else
+                                    return "Cancelled";
+                            }
+
+                        };
+                        rowField.push(row);
+
+                    }
+                    else {
+                        row = {
+                            'caption': name[filter],
+                            'dataField': filter,
+                            'area': 'row',
+                            'width': 120,
+                        };
+                        rowField.push(row);
+                    }
+                });
+            }
+
         },
     },
     mounted() {
-        console.log(1111);
-        this.$nextTick(() =>{
-            console.log($('#daterange'),"$('#daterange')");
-           $('#daterange').daterangepicker({
-                // showDropdowns: true,
-                timePicker: true, //显示时间
-                timePickerIncrement: 30,
-                autoUpdateInput:true,
-                timePicker24Hour: true, //时间制
-                // "opens": "center",
-                // showWeekNumbers: true,
-                time:{
-                    enabled: true
-                },
-                locale: {
-                    format: "YYYY-MM-DD HH:mm", //设置显示格式
-                  
-                },
-            }, function (start, end, label) {
-                // let timeRangeChange = [start.format('YYYY-MM-DD HH:mm'), end.format('YYYY-MM-DD HH:mm')];
-                // console.log(timeRangeChange);
-            })
+        $('input[name="daterange"]').daterangepicker({
+            // showDropdowns: true,
+            timePicker: true, //显示时间
+            timePickerIncrement: 30,
+            autoUpdateInput: true,
+            timePicker24Hour: true, //时间制
+            // "opens": "center",
+            // showWeekNumbers: true,
+            time: {
+                enabled: true
+            },
+            locale: {
+                format: "YYYY-MM-DD HH:mm", //设置显示格式
+
+            },
+        }, function (start, end, label) {
+            this.daterange = [start.format('YYYY-MM-DD HH:mm'), end.format('YYYY-MM-DD HH:mm')];
         })
-  
 
-           
 
-            $("#pivotGrid").dxPivotGrid({
-                allowSortingBySummary: true,
-                allowSorting: false,
-                allowFiltering: true,
-                allowExpandAll: true,
-                showTotalsPrior: 'rows',
-                height: 700,
-                showBorders: true,
-                showColumnGrandTotals: false,
-                showRowTotals: false,
-                showColumnTotals: false,
-                export: {
-                    enabled: true
-                    },
-                onExporting: function(e) { 
-                    var workbook = new ExcelJS.Workbook(); 
-                    var worksheet = workbook.addWorksheet('Main sheet'); 
-                    DevExpress.excelExporter.exportPivotGrid({ 
-                        worksheet: worksheet, 
-                        component: e.component,
-                        customizeCell: function(options) {
-                            var excelCell = options;
-                            excelCell.font = { name: 'Arial', size: 12 };
-                            excelCell.alignment = { horizontal: 'left' };
-                        } 
-                    }).then(function() {
-                        workbook.xlsx.writeBuffer().then(function(buffer) { 
-                            saveAs(new Blob([buffer], { type: 'application/octet-stream' }), 'Summary.xlsx'); 
-                        }); 
-                    }); 
-                    e.cancel = true; 
-                },
-                fieldChooser: {
-                    enabled: false,
-                },
-                fieldPanel: {
-                    showColumnFields: true, 
-                    showRowFields: true,
-                    showDataFields: false,
-                    showDataFields: false,
-                    showFilterFields: false,
-                    visible: true 
-                },
-                dataSource: ds
 
-            });
+
+        $("#pivotGrid").dxPivotGrid({
+            allowSortingBySummary: true,
+            allowSorting: false,
+            allowFiltering: true,
+            allowExpandAll: true,
+            showTotalsPrior: 'rows',
+            height: 700,
+            showBorders: true,
+            showColumnGrandTotals: false,
+            showRowTotals: false,
+            showColumnTotals: false,
+            export: {
+                enabled: true
+            },
+            onExporting: function (e) {
+                var workbook = new ExcelJS.Workbook();
+                var worksheet = workbook.addWorksheet('Main sheet');
+                DevExpress.excelExporter.exportPivotGrid({
+                    worksheet: worksheet,
+                    component: e.component,
+                    customizeCell: function (options) {
+                        var excelCell = options;
+                        excelCell.font = { name: 'Arial', size: 12 };
+                        excelCell.alignment = { horizontal: 'left' };
+                    }
+                }).then(function () {
+                    workbook.xlsx.writeBuffer().then(function (buffer) {
+                        saveAs(new Blob([buffer], { type: 'application/octet-stream' }), 'Summary.xlsx');
+                    });
+                });
+                e.cancel = true;
+            },
+            fieldChooser: {
+                enabled: false,
+            },
+            fieldPanel: {
+                showColumnFields: true,
+                showRowFields: true,
+                showDataFields: false,
+                showDataFields: false,
+                showFilterFields: false,
+                visible: true
+            },
+            dataSource: {
+                fields: this.field(this.arrFilter1, this.arrFilter2),
+                // load: function (loadoptions) {
+                //     let d = $.Deferred();
+                    // $.ajax({
+                    //     url: "https://stage-admin.asia-live.com/gaming",
+                    //     type: "POST",
+                    //     data: {
+                    //         _token: 'zuFuUSmcjJLOvYGlWVUOUaG402jq2HfZe1qwk6MZ',
+                    //         filter1: arrFilter1,
+                    //         filter2: arrFilter2,
+                    //         agent: $('#agent').val(),
+                    //         company: $('#company').val(),
+                    //         start: date1,
+                    //         end: date2,
+                    //         subFilterName: 'id',
+                    //         subFilterValue: 'value',
+                    //         dataType: "array"
+                    //     },
+                    //     beforeSend: function () {
+                    //         console.log("sent");
+                    //     },
+                    //     success: function (response) {
+                    //         var column = response.columns;
+                    //         var row = response.rows;
+                    //         field(row, column);
+                    //         d.resolve(response.data);
+                    //     },
+                    //     complete: function () {
+                    //     },
+
+                    // });
+
+                    // return d.promise();
+                // }
+            }
+
+        });
+        
     },
 }
 </script>
@@ -419,6 +517,10 @@ export default {
 
 .maxh {
     max-height: 381px;
+}
+.dx-pivotgrid-border .dx-widget,.dx-empty-area-text{
+    font-size: 14px !important;
+    font-weight: 400 !important;
 }
 </style>
   

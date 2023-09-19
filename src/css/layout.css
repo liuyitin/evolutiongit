@@ -1,3 +1,7 @@
+.el-header {
+  height: 50px !important;
+  padding: 0;
+}
 .main-header {
   position: fixed;
   top: 0;
@@ -9,6 +13,7 @@
   z-index: 1000;
   background: #fff;
   display: flex;
+  flex-wrap: wrap;
 }
 .main-header .logo {
   position: absolute;
@@ -30,6 +35,31 @@
   text-decoration: none;
 }
 .main-header .logo span {
+  font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
+}
+.main-header .logo .logo-mini {
+  display: block;
+}
+.main-header .medialogo {
+  display: none;
+  border-right: 1px solid #eee;
+  transition: width 0.3s ease-in-out;
+  height: 51px;
+  font-size: 20px;
+  line-height: 50px;
+  text-align: center;
+  width: 100%;
+  font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
+  padding: 0 15px;
+  font-weight: 300;
+  overflow: hidden;
+  text-decoration: none;
+  background: #222;
+  color: #fff;
+  border-bottom: 0 solid transparent;
+  border-right: none;
+}
+.main-header .medialogo span {
   font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
 }
 .main-header .navbar {
@@ -54,29 +84,36 @@
   display: flex;
   align-items: center;
   justify-content: center;
+  font-size: 14px;
 }
-.main-header .sidebar-toggle img {
-  width: 14px;
-  height: 14px;
+.main-header .sidebar-toggle:hover {
+  color: #999999 !important;
+}
+.main-header .navbar-logo-mini {
+  display: none;
 }
 .main-header .user-menu {
   position: relative;
 }
 .main-header .user-menu-content {
-  cursor: pointer;
-  display: flex;
-  align-items: center;
-  font-size: 0.7rem;
+  font-size: 14px;
 }
 .main-header .user-menu-content img {
+  position: relative;
   width: 25px;
   height: 25px;
   border-radius: 50%;
-  margin-right: 10px;
+  margin-left: 10px;
+  margin-top: -2px;
 }
 .main-header .dropdown-toggle {
   white-space: nowrap;
   color: #333;
+  font-size: 14px;
+  font-family: 'Source Sans Pro', 'Helvetica Neue', Helvetica, Arial, sans-serif;
+  font-weight: 400;
+  border-left: 1px solid #eee;
+  line-height: 18px;
 }
 .main-header .dropdown-toggle:hover {
   color: #999;
@@ -101,13 +138,7 @@
   border-bottom: 0;
   border-left: 4px solid transparent;
 }
-.main-header .dropdown-toggle .username {
-  font-size: 0.6rem;
-  font-family: 'Source Sans Pro', 'Helvetica Neue', Helvetica, Arial, sans-serif;
-  font-weight: 400;
-  border-left: 1px solid #eee;
-}
-.main-header .dropdown-menu {
+.main-header .navbar-dropdown-menu {
   box-sizing: content-box;
   position: absolute;
   top: 100%;
@@ -160,6 +191,9 @@
 .main-header.w50 .navbar {
   margin-left: 50px;
 }
+.sectionBox {
+  height: calc(100vh - 50px);
+}
 .asideBox {
   overflow-y: scroll;
   overflow-x: hidden;
@@ -192,6 +226,7 @@
   transition: transform 0.3s ease-in-out, width 0.3s ease-in-out;
   font-family: 'Source Sans Pro', 'Helvetica Neue', Helvetica, Arial, sans-serif;
   padding-bottom: 10px;
+  overflow-x: hidden;
 }
 .el-aside .el-menu {
   box-sizing: content-box;
@@ -273,9 +308,8 @@
   height: 21px;
   display: flex;
   align-items: center;
-}
-.el-aside .menu-item-img img {
-  max-height: 100%;
+  font-size: 14px;
+  color: #444;
 }
 .el-aside .el-submenu__title {
   box-sizing: content-box;
@@ -338,12 +372,18 @@
 .el-aside .openmenu .el-submenu__title.is-active i {
   color: #000;
 }
+.el-main {
+  padding: 0;
+  width: calc(100vw - 230px);
+}
+.mini-el-main {
+  width: calc(100vw - 50px);
+}
 .mini-el-aside .el-aside.el-aside {
   width: 50px !important;
 }
 .mini-el-aside .el-aside.el-aside .disnone,
-.mini-el-aside .el-aside.el-aside .el-menu-item-group__title,
-.mini-el-aside .el-aside.el-aside i {
+.mini-el-aside .el-aside.el-aside .el-menu-item-group__title {
   display: none;
 }
 .ml5 {
@@ -351,4 +391,39 @@
 }
 .pl20 {
   padding-left: 20px;
+}
+@media (max-width: 767px) {
+  .el-header {
+    height: 100px !important;
+  }
+  .main-header {
+    display: block;
+  }
+  .main-header .logo {
+    display: none;
+  }
+  .main-header .medialogo {
+    display: block;
+  }
+  .main-header .navbar {
+    width: 100%;
+    margin: 0;
+  }
+  .main-header .navbar-logo-lg {
+    display: none;
+  }
+  .main-header .navbar-logo-mini {
+    display: block;
+  }
+  .sectionBox {
+    margin-left: -230px;
+    height: calc(100vh - 100px);
+    transition: margin-left 0.3s ease-in-out;
+  }
+  .sectionBoxml {
+    margin-left: 0;
+  }
+  .el-main {
+    width: 100vw;
+  }
 }

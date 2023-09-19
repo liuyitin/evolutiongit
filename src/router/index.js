@@ -209,6 +209,12 @@ const routes = [
           },
         ]
       },
+      {
+        path: 'change-password',
+        name: 'ChangePassword',
+        meta: { title: 'changePassword', },
+        component: () => import('../views/ChangePassword/index.vue'),
+      },
     ]
   },
   {

@@ -5,8 +5,20 @@
                 <h1>Sub Account</h1>
                 <span>List</span>
             </div>
-            <div class="content-header-right itemc">
-                <div class="bf10 itemc">
+            <div class="content-header-right itemc content-header">
+
+                <ol class="breadcrumb">
+                    <li>
+                        <a href="#"><i class="fa fa-dashboard"></i>&nbsp;Home</a>
+                    </li>
+                    <li class="active">
+                        Sub Account
+                    </li>
+                    <li class="active">
+                        Add
+                    </li>
+                </ol>
+                <!-- <div class="bf10 itemc">
                     <i class="fa fa-dashboard"></i>
                     <span>Home</span>
                 </div>
@@ -15,7 +27,7 @@
                     <span>Sub Account</span>
                     <img src="~@/assets/img/bf11.png" alt="">
                     <span>Add</span>
-                </div>
+                </div> -->
             </div>
         </div>
         <div class="layout-table-content">
@@ -25,29 +37,44 @@
                 </div>
                 <Form :model="data">
                     <div class="formBox">
-                        <div class="form-group username">
-                            <Label for="name" align="top">Username</Label>
-                            <TextBox inputId="name" v-model="data.username" placeholder="Username"></TextBox>
-                            <div class="loginusername">@{{ loginusername }}</div>
-                        </div>
-                        <div class="form-group">
-                            <Label for="email" align="top">Password</Label>
-                            <PasswordBox v-model="data.password" placeholder="Password" :showEye="false"></PasswordBox>
-                        </div>
-                        <div class="form-group">
-                            <Label for="hero" align="top">Name</Label>
-                            <TextBox inputId="email" v-model="data.name" placeholder="Name"></TextBox>
-                        </div>
-                        <div class="form-group">
-                            <Label for="hero" align="top">Remark</Label>
-                            <TextBox inputId="email" v-model="data.remark" placeholder="Remark"></TextBox>
-                        </div>
+                        <div class="row">
+                            <div class=" col-md-6">
+                                <div class="form-group username">
+                                    <Label for="name" align="top">Username</Label>
+                                    <TextBox class="col-xs-5" inputId="name" v-model="data.username" placeholder="Username">
+                                    </TextBox>
+                                    <div class="loginusername">@{{ loginusername }}</div>
+                                </div>
+                                <div class="form-group">
+                                    <Label class="col-sm-2" for="email" align="top">Password</Label>
+                                    <div class="col-sm-10">
+                                        <PasswordBox v-model="data.password" placeholder="Password" :showEye="false">
+                                        </PasswordBox>
+                                    </div>
+                                </div>
+                                <div class="form-group">
+                                    <Label class="col-sm-2" for="hero" align="top">Name</Label>
+                                    <div class="col-sm-10">
+                                        <TextBox inputId="email" v-model="data.name" placeholder="Name">
+                                        </TextBox>
+                                    </div>
+                                </div>
+                                <div class="form-group">
+                                    <Label class="col-sm-2" for="hero" align="top">Remark</Label>
+                                    <div class="col-sm-10">
+                                        <TextBox inputId="email" v-model="data.remark" placeholder="Remark">
+                                        </TextBox>
+                                    </div>
+                                </div>
 
+                            </div>
+                        </div>
                     </div>
+
                 </Form>
                 <div class="form-footer">
-                    <LinkButton  class="btn Cancel" @click="toback">Cancel</LinkButton>
-                    <LinkButton  class="btn submitform" @click="submitForm">Submit</LinkButton>
+                    <LinkButton class="btn Cancel" @click="toback">Cancel</LinkButton>
+                    <LinkButton class="btn submitform" @click="submitForm">Submit</LinkButton>
                 </div>
             </div>
 
@@ -74,10 +101,10 @@ export default {
         }
     },
     methods: {
-        toback(){
+        toback() {
             this.$router.back()
         },
-        submitForm(){
+        submitForm() {
 
         },
     },

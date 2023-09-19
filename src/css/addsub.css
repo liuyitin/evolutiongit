@@ -23,7 +23,6 @@
   font-size: 14px;
 }
 .addSubBox .form-group {
-  width: calc(50% - 20px);
   margin-bottom: 16px;
 }
 .addSubBox .textbox-label {
@@ -47,7 +46,6 @@
   background-clip: padding-box;
   border: 1px solid #ced4da;
   border-radius: 0;
-  margin-left: 15px;
 }
 .addSubBox .textbox .textbox-text {
   font-size: 16px;

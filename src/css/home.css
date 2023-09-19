@@ -7,9 +7,8 @@
 .content-header {
   padding: 15px 15px 0 15px;
   display: flex;
+  flex-wrap: wrap;
   justify-content: space-between;
-  line-height: 1;
-  height: 43px;
 }
 .content-header h1 {
   font-family: 'Source Sans Pro', sans-serif;
@@ -17,7 +16,7 @@
   font-weight: 500;
   color: #212529;
   margin: 0;
-  line-height: 1;
+  line-height: 29px;
 }
 .content-header span {
   font-family: 'Source Sans Pro', sans-serif;
@@ -26,32 +25,23 @@
   padding-left: 4px;
   font-weight: 300;
 }
-.content-header .bf10 {
-  color: #444;
-}
-.content-header .bf10 i {
+.content-header .content-header-right {
+  position: absolute;
+  top: 15px;
+  right: 10px;
   font-size: 12px;
-  margin-right: 5px;
+  padding: 0;
 }
-.content-header .bf10 span {
+.content-header > .breadcrumb {
+  position: static !important;
+  display: flex;
+  flex-wrap: wrap;
+  list-style: none;
   font-size: 12px;
   font-family: 'Source Sans Pro', 'Helvetica Neue', Helvetica, Arial, sans-serif;
   font-weight: 400;
   padding: 0;
-}
-.content-header .bf11 {
   color: #444;
-}
-.content-header .bf11 img {
-  width: 8px;
-  height: 7px;
-}
-.content-header .bf11 span {
-  color: #212529;
-  font-size: 12px;
-  font-family: 'Source Sans Pro', 'Helvetica Neue', Helvetica, Arial, sans-serif;
-  font-weight: 400;
-  padding: 0;
 }
 .layout-table-content {
   width: 100%;
@@ -61,4 +51,14 @@
   padding-right: 15px;
   font-family: 'Source Sans Pro', 'Helvetica Neue', Helvetica, Arial, sans-serif;
   font-weight: 400;
+}
+@media (max-width: 991px) {
+  .content-header .content-header-right {
+    position: static;
+    width: 100%;
+  }
+  .content-header .breadcrumb {
+    width: 100%;
+    margin-top: 5px;
+  }
 }

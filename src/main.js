@@ -18,6 +18,7 @@ Vue.config.productionTip = false
 
 Vue.use(ElementUI);
 Vue.use(EasyUI);
+// Vue.use($);
 
 /* eslint-disable no-new */
 new Vue({

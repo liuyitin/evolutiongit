@@ -5,16 +5,15 @@
                 <h1>Home</h1>
                 <span>Summary</span>
             </div>
-            <div class="content-header-right itemc">
-                <div class="bf10 itemc">
-                    <i class="fa fa-dashboard"></i>
-                    <!-- <img src="~@/assets/img/bf10.png" alt=""> -->
-                    <span>Home</span>
-                </div>
-                <div class="bf11 itemc">
-                    <img src="~@/assets/img/bf11.png" alt="">
-                    <span>Dashboard</span>
-                </div>
+            <div class="content-header-right itemc content-header">
+                <ol class="breadcrumb">
+                    <li>
+                        <a href="#"><i class="fa fa-dashboard"></i>&nbsp;Home</a>
+                    </li>
+                    <li class="active">
+                        Dashboard
+                    </li>
+                </ol>
             </div>
         </div>
         <div class="layout-table-content">

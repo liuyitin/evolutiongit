@@ -5,16 +5,23 @@
                 <h1>Report</h1>
                 <span>Financial Report</span>
             </div>
-            <div class="content-header-right itemc">
-                <div class="bf10 itemc">
+            <div class="content-header-right itemc content-header">
+                <ol class="breadcrumb">
+                    <li>
+                        <a href="#"><i class="fa fa-dashboard"></i>&nbsp;Home</a>
+                    </li>
+                    <li class="active">
+                        Financial Report
+                    </li>
+                </ol>
+                <!-- <div class="bf10 itemc">
                     <i class="fa fa-dashboard"></i>
-                    <!-- <img src="~@/assets/img/bf10.png" alt=""> -->
                     <span>Home</span>
                 </div>
                 <div class="bf11 itemc">
                     <img src="~@/assets/img/bf11.png" alt="">
                     <span>Financial Report</span>
-                </div>
+                </div> -->
             </div>
         </div>
         <div class="layout-table-content">

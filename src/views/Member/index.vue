@@ -5,16 +5,16 @@
                 <h1>Member</h1>
                 <span>List</span>
             </div>
-            <div class="content-header-right itemc">
-                <div class="bf10 itemc">
-                    <i class="fa fa-dashboard"></i>
-                    <!-- <img src="~@/assets/img/bf10.png" alt=""> -->
-                    <span>Home</span>
-                </div>
-                <div class="bf11 itemc">
-                    <img src="~@/assets/img/bf11.png" alt="">
-                    <span>Member</span>
-                </div>
+            <div class="content-header-right itemc content-header">
+                <ol class="breadcrumb">
+                    <li>
+                        <a href="#"><i class="fa fa-dashboard"></i>&nbsp;Home</a>
+                    </li>
+                    <li class="active">
+                        Member
+                    </li>
+                </ol>
+
             </div>
         </div>
         <div class="layout-table-content">
@@ -49,61 +49,73 @@
                         <LinkButton iconCls="icon-search">Search</LinkButton>
                     </div>
                 </div>
-                <div>
-                    <DataGrid :data="list" fixColumnSize="name" selectionMode="multiple"
-                        @selectionChange="selection = $event">
-                        <GridColumn align="center" cellCss="datagrid-td-rownumber" width="30" class="GridColumnIndex">
-                            <template slot="body" slot-scope="scope">
-                                <div style="max-width: 22px;">{{ scope.rowIndex + 1 }}
-                                </div>
-                            </template>
-                        </GridColumn>
-                        <GridColumn field="Agent" title="Agent" width="100">
-                            <template slot="body" slot-scope="scope">
-                                <div style="max-width: 90px;">{{
-                                    scope.row.Agent }}</div>
-                            </template>
+                <div class="DataGridBox">
 
-                        </GridColumn>
-                        <GridColumn field="Username" title="Username" width="200">
-                            <template slot="body" slot-scope="scope">
-                                <div style="max-width: 190px;">{{
-                                    scope.row.Username }}</div>
-                            </template>
 
-                        </GridColumn>
-                        <GridColumn field="Provider" title="Provider" width="120">
-                            <template slot="body" slot-scope="scope">
-                                <div style="max-width: 110px;">{{
-                                    scope.row.Provider }}</div>
-                            </template>
-                        </GridColumn>
-                        <GridColumn field="Currency" title="Currency" width="60">
-                            <template slot="body" slot-scope="scope">
-                                <div style="max-width: 50px;">{{
-                                    scope.row.Currency }}</div>
-                            </template>
-                        </GridColumn>
-                        <GridColumn field="Balance" title="Balance" width="100">
-                            <template slot="body" slot-scope="scope">
-                                <div style="max-width: 90px;">{{
-                                    scope.row.Balance }}</div>
-                            </template>
-                        </GridColumn>
-                        <GridColumn field="Status" title="Status" width="80">
-                            <template slot="body" slot-scope="scope">
-                                <div style="max-width: 70px;">{{
-                                    scope.row.Status }}</div>
-                            </template>
-                        </GridColumn>
-                        <GridColumn field="Registed At" title="RegistedAt" width="120">
-                            <template slot="body" slot-scope="scope">
-                                <div style="max-width: 110px;">{{
-                                    scope.row.RegistedAt }}</div>
-                            </template>
-                        </GridColumn>
+                    <DataGrid :data="list" :fitColumns="false" fixColumnSize="Username"  selectionMode="multiple" style="width:100%;">
+                        <GridColumnGroup :frozen="true" width="30">
+                            <GridHeaderRow>
+                                <GridColumn align="center" :frozen="true" cellCss="datagrid-td-rownumber" width="30"
+                                    class="GridColumnIndex">
+                                    <template slot="body" slot-scope="scope">
+                                        <div style="max-width: 22px;">{{ scope.rowIndex + 1 }}
+                                        </div>
+                                    </template>
+                                </GridColumn>
+                            </GridHeaderRow>
+                        </GridColumnGroup>
+                     
+                                <GridColumn field="Agent" title="Agent" width="100">
+                                    <template slot="body" slot-scope="scope">
+                                        <div style="max-width: 90px;">{{
+                                            scope.row.Agent }}</div>
+                                    </template>
+
+                                </GridColumn>
+                                <GridColumn field="Username" title="Username" width="200">
+                                    <template slot="body" slot-scope="scope">
+                                        <div style="max-width: 190px;">{{
+                                            scope.row.Username }}</div>
+                                    </template>
+
+                                </GridColumn>
+                                <GridColumn field="Provider" title="Provider" width="120">
+                                    <template slot="body" slot-scope="scope">
+                                        <div style="max-width: 110px;">{{
+                                            scope.row.Provider }}</div>
+                                    </template>
+                                </GridColumn>
+                                <GridColumn field="Currency" title="Currency" width="60">
+                                    <template slot="body" slot-scope="scope">
+                                        <div style="max-width: 50px;">{{
+                                            scope.row.Currency }}</div>
+                                    </template>
+                                </GridColumn>
+                                <GridColumn field="Balance" title="Balance" width="100">
+                                    <template slot="body" slot-scope="scope">
+                                        <div style="max-width: 90px;">{{
+                                            scope.row.Balance }}</div>
+                                    </template>
+                                </GridColumn>
+                                <GridColumn field="Status" title="Status" width="80">
+                                    <template slot="body" slot-scope="scope">
+                                        <div style="max-width: 70px;">{{
+                                            scope.row.Status }}</div>
+                                    </template>
+                                </GridColumn>
+                                <GridColumn field="Registed At" title="RegistedAt" width="120">
+                                    <template slot="body" slot-scope="scope">
+                                        <div style="max-width: 110px;">{{
+                                            scope.row.RegistedAt }}</div>
+                                    </template>
+                                </GridColumn>
+                        
+
+
+
 
                     </DataGrid>
+
                 </div>
 
                 <Pagination class="table-pagination" :total="total" :pageSize="pageSize" :pageNumber="pageNumber"
@@ -125,9 +137,9 @@ export default {
     data() {
         return {
             status: "All",
-            agent:"ALL",
-            agentdata:[
-            {
+            agent: "ALL",
+            agentdata: [
+                {
                     value: "All",
                     text: "All",
                 },
@@ -137,7 +149,7 @@ export default {
                 },
             ],
             statusdata: [
-            {
+                {
                     value: "All",
                     text: "All",
                 },
@@ -361,6 +373,9 @@ export default {
 <style scoped>
 .statusComboBox {
     width: 88px;
+}
+.DataGridBox{
+    overflow: auto;
 }
 </style>
   

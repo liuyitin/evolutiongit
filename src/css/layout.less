@@ -1,8 +1,11 @@
-
 @logowidth: 230px;
 @logominiwidth: 50px;
 
 // 头部
+ .el-header {
+    height: 50px !important;
+    padding: 0;
+} 
 .main-header {
     position: fixed;
     top: 0;
@@ -14,6 +17,7 @@
     z-index: 1000;
     background: #fff;
     display: flex;
+    flex-wrap: wrap;
 
     .logo {
         position: absolute;
@@ -37,8 +41,32 @@
         span {
             font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
         }
+        .logo-mini{
+            display: block;
+        }
     }
-
+    .medialogo{
+        display: none;
+        border-right: 1px solid #eee;
+        transition: width .3s ease-in-out;
+        height: 51px;
+        font-size: 20px;
+        line-height: 50px;
+        text-align: center;
+        width: 100%;
+        font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
+        padding: 0 15px;
+        font-weight: 300;
+        overflow: hidden;
+        text-decoration: none;
+        background: #222;
+        color: #fff;
+        border-bottom: 0 solid transparent;
+        border-right: none;
+        span {
+            font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
+        }
+    }
     .navbar {
         box-sizing: border-box;
         display: flex;
@@ -62,11 +90,13 @@
         display: flex;
         align-items: center;
         justify-content: center;
-
-        img {
-            width: 14px;
-            height: 14px;
+        font-size: 14px;
+        &:hover{
+            color: #999999 !important;
         }
+    }
+    .navbar-logo-mini{
+        display: none;
     }
 
     .user-menu {
@@ -74,23 +104,26 @@
     }
 
     .user-menu-content {
-        cursor: pointer;
-        display: flex;
-        align-items: center;
-        font-size: 0.7rem;
+        font-size: 14px;
 
         img {
+            position: relative;
             width: 25px;
             height: 25px;
             border-radius: 50%;
-            margin-right: 10px;
+            margin-left: 10px;
+            margin-top: -2px;
         }
     }
 
     .dropdown-toggle {
         white-space: nowrap;
         color: #333;
-
+        font-size: 14px;
+        font-family: 'Source Sans Pro', 'Helvetica Neue', Helvetica, Arial, sans-serif;
+        font-weight: 400;
+        border-left: 1px solid #eee;
+        line-height: 18px;
         &:hover {
             color: #999;
 
@@ -117,19 +150,12 @@
             border-left: 4px solid transparent;
         }
 
-        .username {
-            font-size: 0.6rem;
-            font-family: 'Source Sans Pro', 'Helvetica Neue', Helvetica, Arial, sans-serif;
-            font-weight: 400;
-            border-left: 1px solid #eee;
-
-
-        }
+    
     }
 
- 
 
-    .dropdown-menu {
+
+    .navbar-dropdown-menu {
         box-sizing: content-box;
         position: absolute;
         top: 100%;
@@ -190,24 +216,32 @@
     }
 }
 
-.asideBox{
+.sectionBox {
+    height: calc(100vh - 50px);
+}
+.asideBox {
     overflow-y: scroll;
     overflow-x: hidden;
 }
+
 .asideBox::-webkit-scrollbar {
-  width: 0; /* 隐藏滚动条 */
+    width: 0;
+    /* 隐藏滚动条 */
 }
 
 .asideBox:hover::-webkit-scrollbar {
-  width: 1px; /* 鼠标 hover 时显示滚动条 */
+    width: 1px;
+    /* 鼠标 hover 时显示滚动条 */
 }
 
 .asideBox::-webkit-scrollbar-thumb {
-  background: #ccc; /* 滚动条thumb颜色 */
+    background: #ccc;
+    /* 滚动条thumb颜色 */
 }
 
 .asideBox::-webkit-scrollbar-track {
-  background: #eee; /* 滚动条轨道颜色 */
+    background: #eee;
+    /* 滚动条轨道颜色 */
 }
 
 // 左边
@@ -223,6 +257,7 @@
     transition: transform .3s ease-in-out, width .3s ease-in-out;
     font-family: 'Source Sans Pro', 'Helvetica Neue', Helvetica, Arial, sans-serif;
     padding-bottom: 10px;
+    overflow-x: hidden;
 
     .el-menu {
         box-sizing: content-box;
@@ -295,9 +330,11 @@
         color: #444;
         height: auto;
         line-height: 21px;
-        i{
+
+        i {
             color: #444;
         }
+
         &:hover,
         &.is-active {
             color: #000;
@@ -321,10 +358,9 @@
         height: 21px;
         display: flex;
         align-items: center;
-
-        img {
-            max-height: 100%;
-        }
+        font-size: 14px;
+        color: #444;
+       
     }
 
 
@@ -338,9 +374,10 @@
         line-height: 21px;
         border-left: 3px solid transparent;
 
-        i{
+        i {
             color: #444;
         }
+
         &:hover,
         &.is-active {
             color: #000;
@@ -404,6 +441,16 @@
 
 }
 
+// 内容
+.el-main {
+    padding: 0;
+    width: calc(100vw - @logowidth);
+}
+
+.mini-el-main {
+    width: calc(100vw - @logominiwidth);
+
+}
 
 .mini-el-aside .el-aside.el-aside {
     width: @logominiwidth !important;
@@ -415,8 +462,8 @@
 
     // }
     .disnone,
-    .el-menu-item-group__title,
-    i {
+    .el-menu-item-group__title
+    {
         display: none;
     }
 }
@@ -427,4 +474,49 @@
 
 .pl20 {
     padding-left: 20px;
+}
+
+
+
+
+@media (max-width: 767px) {
+    .el-header {
+        height: 100px !important;
+    } 
+    .main-header {
+        display: block;
+        .logo {
+            display: none;
+           
+        }
+        .medialogo{
+            display: block;
+        }
+        .navbar{
+            width: 100%;
+            margin: 0;
+        }
+        .navbar-logo-lg{
+            display: none;
+        }
+        .navbar-logo-mini{
+            display: block;
+        }
+        
+    }
+ 
+    .sectionBox {
+        margin-left: -@logowidth;
+        height: calc(100vh - 100px);
+        transition: margin-left .3s ease-in-out;
+    }
+    .sectionBoxml{
+        margin-left: 0;
+    }
+   
+    .el-main{
+        width: 100vw;
+    }
+  
+    
 }

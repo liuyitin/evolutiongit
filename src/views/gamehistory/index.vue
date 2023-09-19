@@ -5,16 +5,16 @@
                 <h1>Documentation</h1>
                 <span>Game History API</span>
             </div>
-            <div class="content-header-right itemc">
-                <div class="bf10 itemc">
-                    <i class="fa fa-dashboard"></i>
-                    <!-- <img src="~@/assets/img/bf10.png" alt=""> -->
-                    <span>Home</span>
-                </div>
-                <div class="bf11 itemc">
-                    <img src="~@/assets/img/bf11.png" alt="">
-                    <span>Game History API</span>
-                </div>
+            <div class="content-header-right itemc content-header">
+                <ol class="breadcrumb">
+                    <li>
+                        <a href="#"><i class="fa fa-dashboard"></i>&nbsp;Home</a>
+                    </li>
+                    <li class="active">
+                        Game History API
+                    </li>
+                </ol>
+             
             </div>
         </div>
         <div class="layout-table-content">

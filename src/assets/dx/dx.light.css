@@ -16030,6 +16030,8 @@ input.dx-hidden {
   text-align: center;
   -webkit-transform: translate(-50%,-50%);
   transform: translate(-50%,-50%);
+  font-size: 14px;
+  line-height: 19px;
 }
 .dx-pivotgrid {
   cursor: default;
@@ -16337,6 +16339,8 @@ input.dx-hidden {
 }
 .dx-pivotgrid.dx-row-lines .dx-pivotgrid-area td {
   border-top: 1px solid #ddd;
+  font-size: 14px;
+  line-height: 19px;
 }
 .dx-pivotgrid.dx-row-lines .dx-pivotgrid-area-data tr:first-child > td {
   border-top-width: 0;
@@ -16379,6 +16383,7 @@ input.dx-hidden {
   padding: 7px 0;
   border: 1px solid transparent;
   color: #525252;
+  font-size: 14px;
 }
 .dx-pivotgrid .dx-group-connector {
   position: absolute;
