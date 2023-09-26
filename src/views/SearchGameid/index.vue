@@ -90,6 +90,9 @@ export default {
     font-size: 14px;
     line-height: 26px;
 }
+.inputName p{
+    margin: 0;
+}
 
 .inputName span {
     color: #4d5769;

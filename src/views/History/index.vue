@@ -39,11 +39,10 @@
                             <ComboBox inputId="c1" v-model="agent" :data="agentdata" class="statusComboBox"></ComboBox>
                         </div>
                         &nbsp;
-                        
+
                         <div class="searchBoxitem">
                             Member:
-                            <SearchBox style="width:164px" placeholder="Member" v-model="value"
-                                @search="onSearch($event)">
+                            <SearchBox style="width:164px" placeholder="Member" v-model="value" @search="onSearch($event)">
                             </SearchBox>
                         </div>
                         &nbsp;
@@ -54,110 +53,120 @@
                         &nbsp;
                         <div>
                             Date/Time(UTC):
-                            <DateTimeBox class="DateTimeBoxwidth" inputId="d2" v-model="startdate" format="yyyy-MM-dd HH:mm:ss"></DateTimeBox>
+                            <DateTimeBox class="DateTimeBoxwidth" inputId="d2" v-model="startdate"
+                                format="yyyy-MM-dd HH:mm:ss"></DateTimeBox>
                             ~
-                            <DateTimeBox class="DateTimeBoxwidth" inputId="d2" v-model="startdate" format="yyyy-MM-dd HH:mm:ss"></DateTimeBox>
+                            <DateTimeBox class="DateTimeBoxwidth" inputId="d2" v-model="enddate"
+                                format="yyyy-MM-dd HH:mm:ss"></DateTimeBox>
                         </div>
                         &nbsp;
                         <LinkButton iconCls="icon-search">Search</LinkButton>
                     </div>
                 </div>
-                <div>
-                    <DataGrid :data="list" fixColumnSize="name" selectionMode="multiple" 
-                        @selectionChange="selection = $event">
-                        <GridColumn align="center" cellCss="datagrid-td-rownumber" width="30" class="GridColumnIndex">
-                            <template slot="body" slot-scope="scope">
-                                <div style="max-width: 22px;">{{ scope.rowIndex + 1 }}
-                                </div>
-                            </template>
-                        </GridColumn>
-                        <GridColumn field="ID" title="ID" >
-                            <template slot="body" slot-scope="scope">
-                                <div >{{
-                                    scope.row.RefID }}</div>
-                            </template>
+                <div class="DataGridBox">
+                    <DataGrid :data="list"  selectionMode="multiple" :fitColumns="false"
+                        @selectionChange="selection = $event"  style="width:100%;height: 100%;">
+                        <GridColumnGroup align="left" :frozen="true" width="30">
+                            <GridHeaderRow>
+                                <GridColumn align="center" cellCss="datagrid-td-rownumber" :frozen="true" width="30"
+                                    class="GridColumnIndex">
+                                    <template slot="body" slot-scope="scope">
+                                        <div>{{ scope.rowIndex + 1 }}
+                                        </div>
+                                    </template>
+                                </GridColumn>
+                            </GridHeaderRow>
+                        </GridColumnGroup>
+                        <GridColumnGroup>
+                            <GridHeaderRow>
+                                <GridColumn field="ID" title="ID">
+                                    <template slot="body" slot-scope="scope">
+                                        <div>{{
+                                            scope.row.RefID }}</div>
+                                    </template>
 
-                        </GridColumn>
-                        <GridColumn field="Agent" title="Agent" >
-                            <template slot="body" slot-scope="scope">
-                                <div style="max-width: 90px;">{{
-                                    scope.row.Username }}</div>
-                            </template>
+                                </GridColumn>
+                                <GridColumn field="Agent" title="Agent">
+                                    <template slot="body" slot-scope="scope">
+                                        <div>{{
+                                            scope.row.Username }}</div>
+                                    </template>
 
-                        </GridColumn>
-                        <GridColumn field="Username" title="Username" >
-                            <template slot="body" slot-scope="scope">
-                                <div >{{
-                                    scope.row.Username }}</div>
-                            </template>
-                        </GridColumn>
-                        <GridColumn field="Currency" title="Currency">
-                            <template slot="body" slot-scope="scope">
-                                <div >{{
-                                    scope.row.Currency }}</div>
-                            </template>
-                        </GridColumn>
-                        <GridColumn field="Game" title="Game" >
-                            <template slot="body" slot-scope="scope">
-                                <div >{{
-                                    scope.row.Game }}</div>
-                            </template>
-                        </GridColumn>
-                        <GridColumn field="GameID" title="Game ID" >
-                            <template slot="body" slot-scope="scope">
-                                <div >{{
-                                    scope.row.GameID }}</div>
-                            </template>
-                        </GridColumn>
-                        <GridColumn field="BetCode" title="Bet Code">
-                            <template slot="body" slot-scope="scope">
-                                <div >{{
-                                    scope.row.BetCode }}</div>
-                            </template>
-                        </GridColumn>
-                        <GridColumn field="Bet" title="Bet" >
-                            <template slot="body" slot-scope="scope">
-                                <div >{{
-                                    scope.row.Bet }}</div>
-                            </template>
-                        </GridColumn>
-                        <GridColumn field="Payout" title="Payout">
-                            <template slot="body" slot-scope="scope">
-                                <div >{{
-                                    scope.row.Payout }}</div>
-                            </template>
-                        </GridColumn>
-                        <GridColumn field="Win" title="Win">
-                            <template slot="body" slot-scope="scope">
-                                <div >{{
-                                    scope.row.Payout }}</div>
-                            </template>
-                        </GridColumn>
-                        <GridColumn field="PlacedOn" title="Placed On (UTC)">
-                            <template slot="body" slot-scope="scope">
-                                <div >{{
-                                    scope.row.Payout }}</div>
-                            </template>
-                        </GridColumn>
-                        <GridColumn field="Datetime" title="Datetime (UTC)">
-                            <template slot="body" slot-scope="scope">
-                                <div >{{
-                                    scope.row.Datetime }}</div>
-                            </template>
-                        </GridColumn>
-                        <GridColumn field="Status" title="Status">
-                            <template slot="body" slot-scope="scope">
-                                <div >{{
-                                    scope.row.Status }}</div>
-                            </template>
-                        </GridColumn>
-                        <GridColumn field="Result" title="Result">
-                            <template slot="body" slot-scope="scope">
-                                <div >{{
-                                    scope.row.Result }}</div>
-                            </template>
-                        </GridColumn>
-
+                                </GridColumn>
+                                <GridColumn field="Username" title="Username">
+                                    <template slot="body" slot-scope="scope">
+                                        <div>{{
+                                            scope.row.Username }}</div>
+                                    </template>
+                                </GridColumn>
+                                <GridColumn field="Currency" title="Currency">
+                                    <template slot="body" slot-scope="scope">
+                                        <div>{{
+                                            scope.row.Currency }}</div>
+                                    </template>
+                                </GridColumn>
+                                <GridColumn field="Game" title="Game">
+                                    <template slot="body" slot-scope="scope">
+                                        <div>{{
+                                            scope.row.Game }}</div>
+                                    </template>
+                                </GridColumn>
+                                <GridColumn field="GameID" title="Game ID">
+                                    <template slot="body" slot-scope="scope">
+                                        <div>{{
+                                            scope.row.GameID }}</div>
+                                    </template>
+                                </GridColumn>
+                                <GridColumn field="BetCode" title="Bet Code">
+                                    <template slot="body" slot-scope="scope">
+                                        <div>{{
+                                            scope.row.BetCode }}</div>
+                                    </template>
+                                </GridColumn>
+                                <GridColumn field="Bet" title="Bet">
+                                    <template slot="body" slot-scope="scope">
+                                        <div>{{
+                                            scope.row.Bet }}</div>
+                                    </template>
+                                </GridColumn>
+                                <GridColumn field="Payout" title="Payout">
+                                    <template slot="body" slot-scope="scope">
+                                        <div>{{
+                                            scope.row.Payout }}</div>
+                                    </template>
+                                </GridColumn>
+                                <GridColumn field="Win" title="Win">
+                                    <template slot="body" slot-scope="scope">
+                                        <div>{{
+                                            scope.row.Payout }}</div>
+                                    </template>
+                                </GridColumn>
+                                <GridColumn field="PlacedOn" title="Placed On (UTC)">
+                                    <template slot="body" slot-scope="scope">
+                                        <div>{{
+                                            scope.row.Payout }}</div>
+                                    </template>
+                                </GridColumn>
+                                <GridColumn field="Datetime" title="Datetime (UTC)">
+                                    <template slot="body" slot-scope="scope">
+                                        <div>{{
+                                            scope.row.Datetime }}</div>
+                                    </template>
+                                </GridColumn>
+                                <GridColumn field="Status" title="Status">
+                                    <template slot="body" slot-scope="scope">
+                                        <div>{{
+                                            scope.row.Status }}</div>
+                                    </template>
+                                </GridColumn>
+                                <GridColumn field="Result" title="Result">
+                                    <template slot="body" slot-scope="scope">
+                                        <div>{{
+                                            scope.row.Result }}</div>
+                                    </template>
+                                </GridColumn>
+                            </GridHeaderRow>
+                        </GridColumnGroup>
                     </DataGrid>
                 </div>
 
@@ -180,10 +189,10 @@ export default {
     data() {
         return {
             status: "All",
-            agent:"All",
-            company:"All",
-            companydata:[
-            {
+            agent: "All",
+            company: "All",
+            companydata: [
+                {
                     value: "All",
                     text: "All",
                 },
@@ -192,8 +201,8 @@ export default {
                     text: "263@com",
                 },
             ],
-            agentdata:[
-            {
+            agentdata: [
+                {
                     value: "All",
                     text: "All",
                 },
@@ -203,7 +212,7 @@ export default {
                 },
             ],
             statusdata: [
-            {
+                {
                     value: "All",
                     text: "All",
                 },
@@ -225,8 +234,9 @@ export default {
                 'list', 'sep', 'first', 'prev', 'sep', 'manual', 'sep', 'next', 'last', 'sep', 'refresh', 'info',
             ],
             selection: null,
-            startdate:"",
-         
+            startdate: new Date(new Date(new Date().toLocaleDateString()).getTime()),
+            enddate: new Date(new Date(new Date().toLocaleDateString()).getTime() + 24 * 60 * 60 * 1000 - 1),
+
         }
     },
     methods: {
@@ -246,10 +256,15 @@ export default {
 </script>
   
 <style scoped>
+.layout-main {
+    height: 100%;
+}
+
 .statusComboBox {
     width: 88px;
 }
-.DateTimeBoxwidth{
+
+.DateTimeBoxwidth {
     width: 164px;
 }
 </style>

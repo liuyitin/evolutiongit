@@ -32,8 +32,9 @@
                 <div class="disflex"  @click="hideaside">
                     <div @mouseenter="mouseenter" @mouseleave="mouseLeave" class="asideBox"
                         :class="isshowminimenu ? 'mini-el-aside' : ''">
+
                         <el-aside>
-                            <el-menu :default-openeds="$route.path" :unique-opened="true" router>
+                            <el-menu :default-active="$route.path" :unique-opened="true" router class="el-menu-vertical-demo">
                                 <div class="user-panel">
                                     <div class="headsculpture">
                                         <img src="~@/assets/img/user.png" alt="">
@@ -49,7 +50,7 @@
 
                                 <el-menu-item-group>
                                     <template slot="title" class="disnone">Accounts</template>
-                                    <el-menu-item index="/layout/sub/subPanel">
+                                    <el-menu-item index="/layout/sub">
                                         <div class="menu-item-img">
                                             <i class="fa fa-male"></i>
                                         </div>
@@ -116,6 +117,7 @@
                                 </el-menu-item-group>
                                 <el-menu-item-group>
                                     <template slot="title" class="disnone">Documentation</template>
+                                    <!-- <el-submenu index="10"> -->
                                     <el-submenu index="/layout/documentationapi">
                                         <template slot="title">
                                             <div class="menu-item-img">
@@ -124,6 +126,7 @@
                                         </template>
                                         <div class="ml5 openmenu disnone">
                                             <el-submenu index="/layout/documentationapi-onewallet">
+                                            <!-- <el-submenu index="10-1"> -->
                                                 <template slot="title">
                                                     <div class="menu-item-img">
                                                         <i class="fa fa-file"></i>
@@ -131,10 +134,11 @@
                                                 </template>
                                                 <div class="pl20">
                                                     <el-menu-item
-                                                        index="/layout/documentationapi-onewallet-onewalletuser">User
+                                                        index="/layout/documentationapi-onewallet-user">User
                                                         Authentication (Seamless)</el-menu-item>
                                                 </div>
                                             </el-submenu>
+                                            <!-- <el-submenu index="10-2"> -->
                                             <el-submenu index="/layout/documentationapi-fundtransfer">
                                                 <template slot="title">
                                                     <div class="menu-item-img">
@@ -143,7 +147,7 @@
                                                 </template>
                                                 <div class="pl20">
                                                     <el-menu-item
-                                                        index="/layout/documentationapi-fundtransfer-fundtransferuser">User
+                                                        index="/layout/documentationapi-fundtransfer-user">User
                                                         Authentication (FT)</el-menu-item>
                                                 </div>
                                             </el-submenu>
@@ -179,7 +183,9 @@
                     </div>
                     <el-container>
                         <el-main :class="isshowminimenu ? 'mini-el-main mini-el-aside' : ''">
-                            <router-view></router-view>
+                            <keep-alive>
+                                <router-view></router-view>
+                            </keep-alive>
                         </el-main>
                     </el-container>
                 </div>
@@ -204,6 +210,7 @@ export default {
             isshowminimenu: !1,
             ismini: !1,
             miniisshowminimenu: !1,
+            defalut:[],
         };
     },
 
@@ -242,6 +249,7 @@ export default {
             this.miniisshowminimenu = !1
             this.isshowusermenu = !1
         },
+      
 
     },
     computed: {

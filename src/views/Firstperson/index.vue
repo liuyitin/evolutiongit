@@ -33,7 +33,7 @@
                         Date/Time(UTC):
                         <DateBox class="DateTimeBoxwidth" inputId="d2" v-model="startdate" format="yyyy-MM-dd"></DateBox>
                         ~
-                        <DateBox class="DateTimeBoxwidth" inputId="d2" v-model="startdate" format="yyyy-MM-dd"></DateBox>
+                        <DateBox class="DateTimeBoxwidth" inputId="d2" v-model="enddate" format="yyyy-MM-dd"></DateBox>
                     </div>
                     &nbsp;
                     <div>
@@ -110,7 +110,8 @@ export default {
                 'list', 'sep', 'first', 'prev', 'sep', 'manual', 'sep', 'next', 'last', 'sep', 'refresh', 'info',
             ],
             selection: null,
-            startdate: "",
+            startdate: new Date(),
+            enddate: new Date(),
 
         }
     },

@@ -14,7 +14,7 @@
                         Transfer History
                     </li>
                 </ol>
-              
+
             </div>
         </div>
         <div class="layout-table-content">
@@ -34,81 +34,91 @@
                         &nbsp;
                         <div class="searchBoxitem">
                             Member:
-                            <SearchBox style="width:164px" placeholder="Member" v-model="value"
-                                @search="onSearch($event)">
+                            <SearchBox style="width:164px" placeholder="Member" v-model="value" @search="onSearch($event)">
                             </SearchBox>
                         </div>
                         &nbsp;
-                     
+
                         <div>
                             Date/Time(UTC):
-                            <DateTimeBox class="DateTimeBoxwidth" inputId="d2" v-model="startdate" format="yyyy-MM-dd HH:mm:ss"></DateTimeBox>
+                            <DateTimeBox class="DateTimeBoxwidth" inputId="d2" v-model="startdate"
+                                format="yyyy-MM-dd HH:mm:ss"></DateTimeBox>
                             ~
-                            <DateTimeBox class="DateTimeBoxwidth" inputId="d2" v-model="startdate" format="yyyy-MM-dd HH:mm:ss"></DateTimeBox>
+                            <DateTimeBox class="DateTimeBoxwidth" inputId="d2" v-model="enddate"
+                                format="yyyy-MM-dd HH:mm:ss"></DateTimeBox>
                         </div>
                         &nbsp;
                         <LinkButton iconCls="icon-search">Search</LinkButton>
                     </div>
                 </div>
-                <div>
-                    <DataGrid :data="list" fixColumnSize="name" selectionMode="multiple" :footerData="footerData" :showFooter="true"
-                        @selectionChange="selection = $event">
-                        <GridColumn align="center" cellCss="datagrid-td-rownumber" width="30" class="GridColumnIndex">
-                            <template slot="body" slot-scope="scope">
-                                <div style="max-width: 22px;">{{ scope.rowIndex + 1 }}
-                                </div>
-                            </template>
-                        </GridColumn>
-                        <GridColumn field="RefID" title="RefID" width="150">
-                            <template slot="body" slot-scope="scope">
-                                <div style="max-width: 140px;">{{
-                                    scope.row.RefID }}</div>
-                            </template>
+                <div class="DataGridBox">
+                    <DataGrid :data="list" selectionMode="multiple" :fitColumns="false"
+                        style="width:100%;max-width: 970px;height: 100%;" @selectionChange="selection = $event">
+                        <GridColumnGroup align="left" :frozen="true" width="30">
+                            <GridHeaderRow>
+                                <GridColumn align="center" cellCss="datagrid-td-rownumber" :frozen="true" width="30"
+                                    class="GridColumnIndex">
+                                    <template slot="body" slot-scope="scope">
+                                        <div>{{ scope.rowIndex + 1 }}
+                                        </div>
+                                    </template>
+                                </GridColumn>
+                            </GridHeaderRow>
+                        </GridColumnGroup>
+                        <GridColumnGroup>
+                            <GridHeaderRow>
+                                <GridColumn field="RefID" title="RefID" width="150">
+                                    <template slot="body" slot-scope="scope">
+                                        <div>{{
+                                            scope.row.RefID }}</div>
+                                    </template>
 
-                        </GridColumn>
-                        <GridColumn field="Agent" title="Agent" width="100">
-                            <template slot="body" slot-scope="scope">
-                                <div style="max-width: 90px;">{{
-                                    scope.row.Username }}</div>
-                            </template>
+                                </GridColumn>
+                                <GridColumn field="Agent" title="Agent" width="100">
+                                    <template slot="body" slot-scope="scope">
+                                        <div >{{
+                                            scope.row.Username }}</div>
+                                    </template>
 
-                        </GridColumn>
-                        <GridColumn field="Username" title="Username" width="120">
-                            <template slot="body" slot-scope="scope">
-                                <div style="max-width: 110px;">{{
-                                    scope.row.Username }}</div>
-                            </template>
-                        </GridColumn>
-                        <GridColumn field="Currency" title="Currency" width="60">
-                            <template slot="body" slot-scope="scope">
-                                <div style="max-width: 50px;">{{
-                                    scope.row.Currency }}</div>
-                            </template>
-                        </GridColumn>
-                        <GridColumn field="Credit" title="Credit" width="120" align="right">
-                            <template slot="body" slot-scope="scope">
-                                <div style="max-width: 110px;">{{
-                                    scope.row.Credit }}</div>
-                            </template>
-                        </GridColumn>
-                        <GridColumn field="Debit" title="Debit" width="120" align="right">
-                            <template slot="body" slot-scope="scope">
-                                <div style="max-width: 110px;">{{
-                                    scope.row.Debit }}</div>
-                            </template>
-                        </GridColumn>
-                        <GridColumn field="Balance" title="Balance" width="120" align="right">
-                            <template slot="body" slot-scope="scope">
-                                <div style="max-width: 110px;">{{
-                                    scope.row.Balance }}</div>
-                            </template>
-                        </GridColumn>
-                        <GridColumn field="Datetime" title="Datetime" width="150">
-                            <template slot="body" slot-scope="scope">
-                                <div style="max-width: 140px;">{{
-                                    scope.row.Datetime }}</div>
-                            </template>
-                        </GridColumn>
+                                </GridColumn>
+                                <GridColumn field="Username" title="Username" width="120">
+                                    <template slot="body" slot-scope="scope">
+                                        <div >{{
+                                            scope.row.Username }}</div>
+                                    </template>
+                                </GridColumn>
+                                <GridColumn field="Currency" title="Currency" width="60">
+                                    <template slot="body" slot-scope="scope">
+                                        <div >{{
+                                            scope.row.Currency }}</div>
+                                    </template>
+                                </GridColumn>
+                                <GridColumn field="Credit" title="Credit" width="120" align="right">
+                                    <template slot="body" slot-scope="scope">
+                                        <div >{{
+                                            scope.row.Credit }}</div>
+                                    </template>
+                                </GridColumn>
+                                <GridColumn field="Debit" title="Debit" width="120" align="right">
+                                    <template slot="body" slot-scope="scope">
+                                        <div >{{
+                                            scope.row.Debit }}</div>
+                                    </template>
+                                </GridColumn>
+                                <GridColumn field="Balance" title="Balance" width="120" align="right">
+                                    <template slot="body" slot-scope="scope">
+                                        <div>{{
+                                            scope.row.Balance }}</div>
+                                    </template>
+                                </GridColumn>
+                                <GridColumn field="Datetime" title="Datetime" width="150">
+                                    <template slot="body" slot-scope="scope">
+                                        <div >{{
+                                            scope.row.Datetime }}</div>
+                                    </template>
+                                </GridColumn>
+                            </GridHeaderRow>
+                        </GridColumnGroup>
 
                     </DataGrid>
                 </div>
@@ -132,10 +142,10 @@ export default {
     data() {
         return {
             status: "All",
-            agent:"All",
-            company:"All",
-            companydata:[
-            {
+            agent: "All",
+            company: "All",
+            companydata: [
+                {
                     value: "All",
                     text: "All",
                 },
@@ -144,8 +154,8 @@ export default {
                     text: "263@com",
                 },
             ],
-            agentdata:[
-            {
+            agentdata: [
+                {
                     value: "All",
                     text: "All",
                 },
@@ -155,7 +165,7 @@ export default {
                 },
             ],
             statusdata: [
-            {
+                {
                     value: "All",
                     text: "All",
                 },
@@ -177,10 +187,11 @@ export default {
                 'list', 'sep', 'first', 'prev', 'sep', 'manual', 'sep', 'next', 'last', 'sep', 'refresh', 'info',
             ],
             selection: null,
-            startdate:"",
-            footerData:[
-            { Username: "Sub-Total", Credit:"0.00",Debit: "0.00"},
-      { Username: "Total", Credit: "0.00", Debit: "0.00" }
+            startdate: new Date(new Date(new Date().toLocaleDateString()).getTime()),
+            enddate: new Date(new Date(new Date().toLocaleDateString()).getTime() + 24 * 60 * 60 * 1000 - 1),
+            footerData: [
+                { Username: "Sub-Total", Credit: "0.00", Debit: "0.00" },
+                { Username: "Total", Credit: "0.00", Debit: "0.00" }
             ]
         }
     },
@@ -201,10 +212,14 @@ export default {
 </script>
   
 <style scoped>
+.layout-main {
+    height: 100%;
+}
 .statusComboBox {
     width: 88px;
 }
-.DateTimeBoxwidth{
+
+.DateTimeBoxwidth {
     width: 164px;
 }
 </style>

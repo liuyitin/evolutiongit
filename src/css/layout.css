@@ -375,6 +375,24 @@
 .el-main {
   padding: 0;
   width: calc(100vw - 230px);
+  min-height: 100%;
+  background-color: #ecf0f5;
+  border-left: 1px solid #d2d6de;
+  overflow-y: auto;
+}
+.el-main .layout-main {
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+}
+.el-main .layout-table-content {
+  flex: 1;
+  flex-shrink: 1;
+  display: flex;
+  flex-direction: column;
+}
+.el-main .pagination {
+  flex-wrap: wrap;
 }
 .mini-el-main {
   width: calc(100vw - 50px);
@@ -391,6 +409,9 @@
 }
 .pl20 {
   padding-left: 20px;
+}
+.combo-arrow {
+  background: url("~@/assets/img/combo_arrow.png") no-repeat center center;
 }
 @media (max-width: 767px) {
   .el-header {

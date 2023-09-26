@@ -14,7 +14,7 @@
                         Win Loss
                     </li>
                 </ol>
-              
+
             </div>
         </div>
         <div class="layout-table-content">
@@ -32,11 +32,10 @@
                             <ComboBox inputId="c1" v-model="agent" :data="agentdata" class="statusComboBox"></ComboBox>
                         </div>
                         &nbsp;
-                        
+
                         <div class="searchBoxitem">
                             Currency:
-                            <SearchBox style="width:164px" placeholder="Member" v-model="value"
-                                @search="onSearch($event)">
+                            <SearchBox style="width:164px" placeholder="Member" v-model="value" @search="onSearch($event)">
                             </SearchBox>
                         </div>
                         &nbsp;
@@ -47,79 +46,89 @@
                         &nbsp;
                         <div>
                             Date/Time(UTC):
-                            <DateTimeBox class="DateTimeBoxwidth" inputId="d2" v-model="startdate" format="yyyy-MM-dd HH:mm:ss"></DateTimeBox>
+                            <DateTimeBox class="DateTimeBoxwidth" inputId="d2" v-model="startdate"
+                                format="yyyy-MM-dd HH:mm"></DateTimeBox>
                             ~
-                            <DateTimeBox class="DateTimeBoxwidth" inputId="d2" v-model="startdate" format="yyyy-MM-dd HH:mm:ss"></DateTimeBox>
+                            <DateTimeBox class="DateTimeBoxwidth" inputId="d2" v-model="enddate" format="yyyy-MM-dd HH:mm">
+                            </DateTimeBox>
                         </div>
                         &nbsp;
                         <LinkButton iconCls="icon-search">Search</LinkButton>
                     </div>
                 </div>
-                <div>
-                    <DataGrid :data="list" fixColumnSize="name" selectionMode="multiple" 
-                        @selectionChange="selection = $event">
-                        <GridColumn align="center" cellCss="datagrid-td-rownumber" width="30" class="GridColumnIndex">
-                            <template slot="body" slot-scope="scope">
-                                <div style="max-width: 22px;">{{ scope.rowIndex + 1 }}
-                                </div>
-                            </template>
-                        </GridColumn>
-                        <GridColumn field="Name" title="Name" width="250">
-                            <template slot="body" slot-scope="scope">
-                                <div style="max-width: 240px;">{{
-                                    scope.row.Name }}</div>
-                            </template>
+                <div class="DataGridBox">
+                    <DataGrid :data="list" selectionMode="multiple" :fitColumns="false" @selectionChange="selection = $event"
+                        style="width:100%;max-width: 1030px;height: 100%;">
+                        <GridColumnGroup align="left" :frozen="true" width="30">
+                            <GridHeaderRow>
+                                <GridColumn align="center" cellCss="datagrid-td-rownumber" :frozen="true" width="30"
+                                    class="GridColumnIndex">
+                                    <template slot="body" slot-scope="scope">
+                                        <div>{{ scope.rowIndex + 1 }}
+                                        </div>
+                                    </template>
+                                </GridColumn>
+                            </GridHeaderRow>
+                        </GridColumnGroup>
+                        <GridColumnGroup>
+                            <GridHeaderRow>
+                                <GridColumn field="Name" title="Name" width="250">
+                                    <template slot="body" slot-scope="scope">
+                                        <div>{{
+                                            scope.row.Name }}</div>
+                                    </template>
 
-                        </GridColumn>
-                     
-                        <GridColumn field="Currency" title="Currency">
-                            <template slot="body" slot-scope="scope">
-                                <div >{{
-                                    scope.row.Currency }}</div>
-                            </template>
-                        </GridColumn>
-                        <GridColumn field="Player" title="Player" width="80" align="right">
-                            <template slot="body" slot-scope="scope">
-                                <div style="max-width: 70px;">{{
-                                    scope.row.Player }}</div>
-                            </template>
-                        </GridColumn>
-                        <GridColumn field="Tickets" title="Tickets"  width="80" align="right">
-                            <template slot="body" slot-scope="scope">
-                                <div style="max-width: 70px;">{{
-                                    scope.row.Tickets }}</div>
-                            </template>
-                        </GridColumn>
-                        <GridColumn field="Bet" title="Bet" width="150" align="right">
-                            <template slot="body" slot-scope="scope"  >
-                                <div style="max-width: 140px;">{{
-                                    scope.row.Bet }}</div>
-                            </template>
-                        </GridColumn>
-                        <GridColumn field="Payout" title="Payout" width="150" align="right">
-                            <template slot="body" slot-scope="scope">
-                                <div style="max-width: 140px;">{{
-                                    scope.row.Payout }}</div>
-                            </template>
-                        </GridColumn>
-                   
-                        <GridColumn field="Win" title="Win" width="150" align="right">
-                            <template slot="body" slot-scope="scope">
-                                <div style="max-width: 140px;">{{
-                                    scope.row.Payout }}</div>
-                            </template>
-                        </GridColumn>
-                        <GridColumn field="Margin" title="Margin" width="80" align="right">
-                            <template slot="body" slot-scope="scope">
-                                <div style="max-width: 70px;">{{
-                                    scope.row.Margin }}</div>
-                            </template>
-                        </GridColumn>
+                                </GridColumn>
 
+                                <GridColumn field="Currency" title="Currency" width="60">
+                                    <template slot="body" slot-scope="scope">
+                                        <div>{{
+                                            scope.row.Currency }}</div>
+                                    </template>
+                                </GridColumn>
+                                <GridColumn field="Player" title="Player" width="80" align="right">
+                                    <template slot="body" slot-scope="scope">
+                                        <div>{{
+                                            scope.row.Player }}</div>
+                                    </template>
+                                </GridColumn>
+                                <GridColumn field="Tickets" title="Tickets" width="80" align="right">
+                                    <template slot="body" slot-scope="scope">
+                                        <div>{{
+                                            scope.row.Tickets }}</div>
+                                    </template>
+                                </GridColumn>
+                                <GridColumn field="Bet" title="Bet" width="150" align="right">
+                                    <template slot="body" slot-scope="scope">
+                                        <div>{{
+                                            scope.row.Bet }}</div>
+                                    </template>
+                                </GridColumn>
+                                <GridColumn field="Payout" title="Payout" width="150" align="right">
+                                    <template slot="body" slot-scope="scope">
+                                        <div>{{
+                                            scope.row.Payout }}</div>
+                                    </template>
+                                </GridColumn>
+
+                                <GridColumn field="Win" title="Win" width="150" align="right">
+                                    <template slot="body" slot-scope="scope">
+                                        <div>{{
+                                            scope.row.Payout }}</div>
+                                    </template>
+                                </GridColumn>
+                                <GridColumn field="Margin" title="Margin" width="80" align="right">
+                                    <template slot="body" slot-scope="scope">
+                                        <div>{{
+                                            scope.row.Margin }}</div>
+                                    </template>
+                                </GridColumn>
+                            </GridHeaderRow>
+                        </GridColumnGroup>
                     </DataGrid>
                 </div>
 
-              
+
             </Panel>
 
         </div>
@@ -136,10 +145,10 @@ export default {
     data() {
         return {
             status: "All",
-            agent:"All",
-            company:"All",
-            companydata:[
-            {
+            agent: "All",
+            company: "All",
+            companydata: [
+                {
                     value: "All",
                     text: "All",
                 },
@@ -148,8 +157,8 @@ export default {
                     text: "263@com",
                 },
             ],
-            agentdata:[
-            {
+            agentdata: [
+                {
                     value: "All",
                     text: "All",
                 },
@@ -159,7 +168,7 @@ export default {
                 },
             ],
             statusdata: [
-            {
+                {
                     value: "All",
                     text: "All",
                 },
@@ -181,8 +190,9 @@ export default {
                 'list', 'sep', 'first', 'prev', 'sep', 'manual', 'sep', 'next', 'last', 'sep', 'refresh', 'info',
             ],
             selection: null,
-            startdate:"",
-         
+            startdate: new Date(new Date(new Date().toLocaleDateString()).getTime()),
+            enddate: new Date(new Date(new Date().toLocaleDateString()).getTime() + 24 * 60 * 60 * 1000 - 1),
+
         }
     },
     methods: {
@@ -198,15 +208,26 @@ export default {
             return this.selection.map(function (row) { return row.Username }).join(",");
         }
     },
+    mounted() {
+   
+    },
 }
 </script>
   
 <style scoped>
+.layout-main {
+    height: 100%;
+}
+
 .statusComboBox {
     width: 88px;
 }
-.DateTimeBoxwidth{
+
+.DateTimeBoxwidth {
     width: 164px;
 }
+
+
+
 </style>
   

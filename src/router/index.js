@@ -46,22 +46,14 @@ const routes = [
         path: 'sub',
         name: 'Sub',
         meta: { title: 'sub', },
-        redirect: "sub/subPanel",
         component: () => import('../views/Sub/index.vue'),
-        children: [
-          {
-            path: 'subPanel',
-            name: 'subPanel',
-            meta: { title: 'sub', },
-            component: () => import('../views/subPanel/index.vue'),
-          },
-          {
-            path: 'addSub',
-            name: 'add',
-            meta: { title: 'add', },
-            component: () => import('../views/addSub/index.vue'),
-          }
-        ]
+       
+      },
+      {
+        path: 'sub/addSub',
+        name: 'add',
+        meta: { title: 'add', },
+        component: () => import('../views/addSub/index.vue'),
       },
       {
         path: 'member',
@@ -124,7 +116,7 @@ const routes = [
             component: () => import('../views/onewallet/index.vue'),
             children: [
               {
-                path: '/layout/documentationapi-onewallet-onewalletuser',
+                path: '/layout/documentationapi-onewallet-user',
                 name: 'onewalletuser',
                 meta: { title: 'onewalletuser', },
                 component: () => import('../views/onewalletuser/index.vue'),
@@ -138,7 +130,7 @@ const routes = [
             component: () => import('../views/fundtransfer/index.vue'),
             children: [
               {
-                path: '/layout/documentationapi-fundtransfer-fundtransferuser',
+                path: '/layout/documentationapi-fundtransfer-user',
                 name: 'fundtransferuser',
                 meta: { title: 'fundtransferuser', },
                 component: () => import('../views/fundtransferuser/index.vue'),

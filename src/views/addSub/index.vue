@@ -87,7 +87,6 @@
 
 import "@/css/home.css"
 import "@/css/addSub.css"
-// import { mapGetters } from "vuex";
 
 export default {
     data() {

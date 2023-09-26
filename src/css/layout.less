@@ -2,10 +2,11 @@
 @logominiwidth: 50px;
 
 // 头部
- .el-header {
+.el-header {
     height: 50px !important;
     padding: 0;
-} 
+}
+
 .main-header {
     position: fixed;
     top: 0;
@@ -41,11 +42,13 @@
         span {
             font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
         }
-        .logo-mini{
+
+        .logo-mini {
             display: block;
         }
     }
-    .medialogo{
+
+    .medialogo {
         display: none;
         border-right: 1px solid #eee;
         transition: width .3s ease-in-out;
@@ -63,10 +66,12 @@
         color: #fff;
         border-bottom: 0 solid transparent;
         border-right: none;
+
         span {
             font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
         }
     }
+
     .navbar {
         box-sizing: border-box;
         display: flex;
@@ -91,11 +96,13 @@
         align-items: center;
         justify-content: center;
         font-size: 14px;
-        &:hover{
+
+        &:hover {
             color: #999999 !important;
         }
     }
-    .navbar-logo-mini{
+
+    .navbar-logo-mini {
         display: none;
     }
 
@@ -124,6 +131,7 @@
         font-weight: 400;
         border-left: 1px solid #eee;
         line-height: 18px;
+
         &:hover {
             color: #999;
 
@@ -150,7 +158,7 @@
             border-left: 4px solid transparent;
         }
 
-    
+
     }
 
 
@@ -219,6 +227,7 @@
 .sectionBox {
     height: calc(100vh - 50px);
 }
+
 .asideBox {
     overflow-y: scroll;
     overflow-x: hidden;
@@ -360,7 +369,7 @@
         align-items: center;
         font-size: 14px;
         color: #444;
-       
+
     }
 
 
@@ -445,6 +454,27 @@
 .el-main {
     padding: 0;
     width: calc(100vw - @logowidth);
+    min-height: 100%;
+    background-color: #ecf0f5;
+    border-left: 1px solid #d2d6de;
+    overflow-y: auto;
+
+    .layout-main {
+        display: flex;
+        flex-direction: column;
+        width: 100%;
+    }
+
+    .layout-table-content {
+        flex: 1;
+        flex-shrink: 1;
+        display: flex;
+        flex-direction: column;
+    }
+
+    .pagination {
+        flex-wrap: wrap;
+    }
 }
 
 .mini-el-main {
@@ -462,8 +492,7 @@
 
     // }
     .disnone,
-    .el-menu-item-group__title
-    {
+    .el-menu-item-group__title {
         display: none;
     }
 }
@@ -475,48 +504,58 @@
 .pl20 {
     padding-left: 20px;
 }
+.combo-arrow{
+    background: url("~@/assets/img/combo_arrow.png") no-repeat center center;
 
+}
 
 
 
 @media (max-width: 767px) {
     .el-header {
         height: 100px !important;
-    } 
+    }
+
     .main-header {
         display: block;
+
         .logo {
             display: none;
-           
+
         }
-        .medialogo{
+
+        .medialogo {
             display: block;
         }
-        .navbar{
+
+        .navbar {
             width: 100%;
             margin: 0;
         }
-        .navbar-logo-lg{
+
+        .navbar-logo-lg {
             display: none;
         }
-        .navbar-logo-mini{
+
+        .navbar-logo-mini {
             display: block;
         }
-        
+
     }
- 
+
     .sectionBox {
         margin-left: -@logowidth;
         height: calc(100vh - 100px);
         transition: margin-left .3s ease-in-out;
     }
-    .sectionBoxml{
+
+    .sectionBoxml {
         margin-left: 0;
     }
-   
-    .el-main{
+
+    .el-main {
         width: 100vw;
     }
-  
-    
+
+
 }

@@ -50,71 +50,69 @@
                     </div>
                 </div>
                 <div class="DataGridBox">
-
-
-                    <DataGrid :data="list" :fitColumns="false" fixColumnSize="Username"  selectionMode="multiple" style="width:100%;">
-                        <GridColumnGroup :frozen="true" width="30">
+                    <DataGrid :data="list" selectionMode="multiple" :fitColumns="false"
+                        style="width:100%;max-width: 810px;height: 100%;" @selectionChange="selection = $event">
+                        <GridColumnGroup align="left" :frozen="true" width="30">
                             <GridHeaderRow>
-                                <GridColumn align="center" :frozen="true" cellCss="datagrid-td-rownumber" width="30"
+                                <GridColumn align="center" cellCss="datagrid-td-rownumber" :frozen="true" width="30"
                                     class="GridColumnIndex">
                                     <template slot="body" slot-scope="scope">
-                                        <div style="max-width: 22px;">{{ scope.rowIndex + 1 }}
+                                        <div>{{ scope.rowIndex + 1 }}
                                         </div>
                                     </template>
                                 </GridColumn>
                             </GridHeaderRow>
                         </GridColumnGroup>
-                     
+                        <GridColumnGroup>
+                            <GridHeaderRow>
                                 <GridColumn field="Agent" title="Agent" width="100">
                                     <template slot="body" slot-scope="scope">
-                                        <div style="max-width: 90px;">{{
+                                        <div >{{
                                             scope.row.Agent }}</div>
                                     </template>
 
                                 </GridColumn>
                                 <GridColumn field="Username" title="Username" width="200">
                                     <template slot="body" slot-scope="scope">
-                                        <div style="max-width: 190px;">{{
+                                        <div >{{
                                             scope.row.Username }}</div>
                                     </template>
 
                                 </GridColumn>
                                 <GridColumn field="Provider" title="Provider" width="120">
                                     <template slot="body" slot-scope="scope">
-                                        <div style="max-width: 110px;">{{
+                                        <div >{{
                                             scope.row.Provider }}</div>
                                     </template>
                                 </GridColumn>
                                 <GridColumn field="Currency" title="Currency" width="60">
                                     <template slot="body" slot-scope="scope">
-                                        <div style="max-width: 50px;">{{
+                                        <div >{{
                                             scope.row.Currency }}</div>
                                     </template>
                                 </GridColumn>
                                 <GridColumn field="Balance" title="Balance" width="100">
                                     <template slot="body" slot-scope="scope">
-                                        <div style="max-width: 90px;">{{
+                                        <div >{{
                                             scope.row.Balance }}</div>
                                     </template>
                                 </GridColumn>
                                 <GridColumn field="Status" title="Status" width="80">
                                     <template slot="body" slot-scope="scope">
-                                        <div style="max-width: 70px;">{{
+                                        <div >{{
                                             scope.row.Status }}</div>
                                     </template>
                                 </GridColumn>
                                 <GridColumn field="Registed At" title="RegistedAt" width="120">
                                     <template slot="body" slot-scope="scope">
-                                        <div style="max-width: 110px;">{{
+                                        <div >{{
                                             scope.row.RegistedAt }}</div>
                                     </template>
                                 </GridColumn>
-                        
-
-
-
-
+                            </GridHeaderRow>
+                        </GridColumnGroup>
                     </DataGrid>
+
 
                 </div>
 
@@ -352,6 +350,7 @@ export default {
                 'list', 'sep', 'first', 'prev', 'sep', 'manual', 'sep', 'next', 'last', 'sep', 'refresh', 'info',
             ],
             selection: null,
+            data: [],
         }
     },
     methods: {
@@ -367,14 +366,113 @@ export default {
             return this.selection.map(function (row) { return row.Username }).join(",");
         }
     },
+    created() {
+        this.data = [
+            {
+                code: "FI-SW-01",
+                name: "Koi",
+                unitcost: 10.0,
+                status: "P",
+                listprice: 36.5,
+                attr: "Large",
+                itemid: "EST-1"
+            },
+            {
+                code: "K9-DL-01",
+                name: "Dalmation",
+                unitcost: 12.0,
+                status: "P",
+                listprice: 18.5,
+                attr: "Spotted Adult Female",
+                itemid: "EST-10"
+            },
+            {
+                code: "RP-SN-01",
+                name: "Rattlesnake",
+                unitcost: 12.0,
+                status: "P",
+                listprice: 38.5,
+                attr: "Venomless",
+                itemid: "EST-11"
+            },
+            {
+                code: "RP-SN-01",
+                name: "Rattlesnake",
+                unitcost: 12.0,
+                status: "P",
+                listprice: 26.5,
+                attr: "Rattleless",
+                itemid: "EST-12"
+            },
+            {
+                code: "RP-LI-02",
+                name: "Iguana",
+                unitcost: 12.0,
+                status: "P",
+                listprice: 35.5,
+                attr: "Green Adult",
+                itemid: "EST-13"
+            },
+            {
+                code: "FL-DSH-01",
+                name: "Manx",
+                unitcost: 12.0,
+                status: "N",
+                listprice: 158.5,
+                attr: "Tailless",
+                itemid: "EST-14"
+            },
+            {
+                code: "FL-DSH-01",
+                name: "Manx",
+                unitcost: 12.0,
+                status: "N",
+                listprice: 83.5,
+                attr: "With tail",
+                itemid: "EST-15"
+            },
+            {
+                code: "FL-DLH-02",
+                name: "Persian",
+                unitcost: 12.0,
+                status: "P",
+                listprice: 23.5,
+                attr: "Adult Female",
+                itemid: "EST-16"
+            },
+            {
+                code: "FL-DLH-02",
+                name: "Persian",
+                unitcost: 12.0,
+                status: "N",
+                listprice: 89.5,
+                attr: "Adult Male",
+                itemid: "EST-17"
+            },
+            {
+                code: "AV-CB-01",
+                name: "Amazon Parrot",
+                unitcost: 92.0,
+                status: "P",
+                listprice: 63.5,
+                attr: "Adult Male",
+                itemid: "EST-18"
+            }
+        ];
+    }
 }
 </script>
   
 <style scoped>
+.layout-main {
+    height: 100%;
+}
+
 .statusComboBox {
     width: 88px;
 }
-.DataGridBox{
+
+.DataGridBox {
     overflow: auto;
 }
 </style>
